@@ -12,6 +12,7 @@ function AppRoutes() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/event" element={<Home />} />
         <Route path="/event/genshin" element={<YSglobal />} />
         <Route path="/event/yuanshen" element={<YScn />} />
         <Route path="/event/sky" element={<Sky />} />
