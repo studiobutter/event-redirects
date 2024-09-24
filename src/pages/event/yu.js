@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 
 function Yu() {
     useEffect(() => { 
-      window.location.href = 'sky://';
+      window.location.href = 'sky-dev://';
       }, []);
     return (
       <div>

@@ -19,6 +19,7 @@ import NAPvn from './pages/event/nap_vn';
 
 // TGC
 import Sky from './pages/event/sky';
+import SkyBeta from './pages/event/sky-beta';
 import Yu from './pages/event/yu';
 // Testing
 
@@ -40,6 +41,7 @@ function AppRoutes() {
         <Route path="/event/zzzvn" element={<NAPvn />} />
         
         <Route path="/event/sky" element={<Sky />} />
+        <Route path="/event/skybeta" element={<SkyBeta />} />
         <Route path="/event/guangyu" element={<Yu />} />
       </Routes>
     </Router>
