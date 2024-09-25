@@ -19,7 +19,7 @@ function HYLYSOP() {
         }
       };
   
-      redirect(mobileUrl, MainUrl, 4000);
+      redirect(mobileUrl, MainUrl, 3000);
   }, []);
 
   return (
