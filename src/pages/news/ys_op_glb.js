@@ -4,7 +4,7 @@ import { isMobile } from 'react-device-detect';
 function HYLYSOP() {
     useEffect(() => {
       const mobileUrl = 'hoyolab://openURL?url=https%3A%2F%2Fhoyo.link%2F50ikFCAL';
-      const Url = 'https://hoyo.link/50ikFCAL';
+      const FallbackUrl = 'https://hoyo.link/50ikFCAL';
   
       try {
         if (isMobile) {
@@ -12,13 +12,17 @@ function HYLYSOP() {
           window.location.href = mobileUrl;
         } else {
           // Attempt to redirect to the desktop URL scheme
-          window.location.href = Url;
+          window.location.href = FallbackUrl;
         }
       } catch (error) {
         console.error('Error:', error);
         if (error.message.includes('scheme does not have a registered handler')) {
           // If the URL scheme doesn't work, redirect to the fallback URL
-          window.location.href = Url;
+          if (isMobile) {
+            window.location.href = FallbackUrl;
+          } else {
+            window.location.href = FallbackUrl;
+          }
         }
       }
     }, []);
