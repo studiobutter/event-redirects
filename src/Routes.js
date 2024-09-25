@@ -24,6 +24,7 @@ import Yu from './pages/event/yu';
 // Testing
 
 import HYLYSOP from './pages/news/ys_op_glb';
+import NapWebGlobal from './pages/event/web/nap_web_glb';
 
 function AppRoutes() {
   return (
@@ -45,7 +46,9 @@ function AppRoutes() {
         <Route path="/event/sky" element={<Sky />} />
         <Route path="/event/skybeta" element={<SkyBeta />} />
         <Route path="/event/guangyu" element={<Yu />} />
+
         <Route path="/news/ys_OP" element={<HYLYSOP/>} />
+        <Route path="/event/web/nap_glb" element={<NapWebGlobal/>} />
       </Routes>
     </Router>
   );
