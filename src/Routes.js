@@ -23,6 +23,8 @@ import SkyBeta from './pages/event/sky-beta';
 import Yu from './pages/event/yu';
 // Testing
 
+import HYLYSOP from './pages/news/ys_op_glb';
+
 function AppRoutes() {
   return (
     <Router>
@@ -43,6 +45,7 @@ function AppRoutes() {
         <Route path="/event/sky" element={<Sky />} />
         <Route path="/event/skybeta" element={<SkyBeta />} />
         <Route path="/event/guangyu" element={<Yu />} />
+        <Route path="/news/ys_OP" element={<HYLYSOP/>} />
       </Routes>
     </Router>
   );
