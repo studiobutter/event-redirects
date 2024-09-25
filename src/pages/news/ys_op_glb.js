@@ -1,37 +1,32 @@
 import React, { useEffect } from 'react';
-import { isMobile } from 'react-device-detect';
 
 function HYLYSOP() {
-    useEffect(() => {
-      const mobileUrl = 'hoyolab://openURL?url=https%3A%2F%2Fhoyo.link%2F50ikFCAL';
-      const FallbackUrl = 'https://hoyo.link/50ikFCAL';
-  
-      try {
-        if (isMobile) {
-          // Attempt to redirect to the mobile URL scheme
-          window.location.href = mobileUrl;
-        } else {
-          // Attempt to redirect to the desktop URL scheme
-          window.location.href = FallbackUrl;
+  useEffect(() => {
+    const mobileUrl = 'hoyolab://openURL?url=https%3A%2F%2Fhoyo.link%2F50ikFCAL';
+    const MainUrl = 'https://hoyo.link/50ikFCAL';
+
+    const redirect = (url, fallbackUrl, delay) => {
+        try {
+          window.location.href = url;
+          setTimeout(() => {
+            window.location.href = fallbackUrl;
+          }, delay);
+        } catch (error) {
+          console.error('Error:', error);
+          setTimeout(() => {
+            window.location.href = fallbackUrl;
+          }, delay);
         }
-      } catch (error) {
-        console.error('Error:', error);
-        if (error.message.includes('scheme does not have a registered handler')) {
-          // If the URL scheme doesn't work, redirect to the fallback URL
-          if (isMobile) {
-            window.location.href = FallbackUrl;
-          } else {
-            window.location.href = FallbackUrl;
-          }
-        }
-      }
-    }, []);
+      };
   
-    return (
-      <div>
-        <p>Redirecting...</p>
-      </div>
-    );
-  }
+      redirect(mobileUrl, MainUrl, 4000);
+  }, []);
+
+  return (
+    <div>
+      <p>Redirecting...</p>
+    </div>
+  );
+}
 
 export default HYLYSOP;
