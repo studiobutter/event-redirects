@@ -24,7 +24,10 @@ import Yu from './pages/event/yu';
 // Testing
 
 import HYLYSOP from './pages/news/ys_op_glb';
+
 import NapWebGlobal from './pages/event/web/nap_web_glb';
+import Genshin4th from './pages/event/web/ysweb4';
+
 
 function AppRoutes() {
   return (
@@ -48,7 +51,9 @@ function AppRoutes() {
         <Route path="/event/guangyu" element={<Yu />} />
 
         <Route path="/news/ys_OP" element={<HYLYSOP/>} />
+
         <Route path="/event/web/nap_glb" element={<NapWebGlobal/>} />
+        <Route path="/event/web/Genshin4th" element={<Genshin4th/>} />
       </Routes>
     </Router>
   );
