@@ -26,7 +26,7 @@ function Yuanshen4() {
     <div>
       <p>Starting Web Event...</p>
       <p>If Hyperion (miHoYo BBS) isn't installed on your phone, <a href="https://act.mihoyo.com/ys/event/20240927gift-delivery-xmyq9b/index.html?game_biz=hk4e_cn&mhy_presentation_style=fullscreen&mhy_auth_required=true&mhy_landscape=true&mhy_hide_status_bar=true">Click here.</a></p>
-      <p>This link opens in HoYoLAB which if your HoYoverse account already logged in. No need to login again. Otherwise Login is required.</p>
+      <p>This link opens in HoYoLAB which if your miHoYo account already logged in. No need to login again. Otherwise Login is required.</p>
       <p>User on PC should be automatically be redirected. Login is required</p>
     </div>
   );
