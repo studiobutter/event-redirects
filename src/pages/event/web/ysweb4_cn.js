@@ -24,10 +24,10 @@ function Yuanshen4() {
 
   return (
     <div>
-      <p>Starting Web Event...</p>
-      <p>If Hyperion (miHoYo BBS) isn't installed on your phone, <a href="https://act.mihoyo.com/ys/event/20240927gift-delivery-xmyq9b/index.html?game_biz=hk4e_cn&mhy_presentation_style=fullscreen&mhy_auth_required=true&mhy_landscape=true&mhy_hide_status_bar=true">Click here.</a></p>
-      <p>This link opens in HoYoLAB which if your miHoYo account already logged in. No need to login again. Otherwise Login is required.</p>
-      <p>User on PC should be automatically be redirected. Login is required</p>
+      <p>正在启动网络事件...</p>
+      <p>I如果你的手机没有安装米游社，<a href="https://act.mihoyo.com/ys/event/20240927gift-delivery-xmyq9b/index.html?game_biz=hk4e_cn&mhy_presentation_style=fullscreen&mhy_auth_required=true&mhy_landscape=true&mhy_hide_status_bar=true">请点击这里.</a></p>
+      <p>此链接在米游社打开，前提是你的miHoYo账号已经登录。无需再次登录。否则需要登录。</p>
+      <p>PC 上的用户应自动重定向。需要登录。</p>
     </div>
   );
 }

@@ -27,7 +27,7 @@ function Genshin4th() {
       <p>Starting Web Event...</p>
       <p>If HoYoLAB isn't installed on your phone, <a href="https://hoyo.link/6WlkFHAL">Click here.</a></p>
       <p>This link opens in HoYoLAB which if your HoYoverse account already logged in. No need to login again. Otherwise Login is required.</p>
-      <p>User on PC should be automatically be redirected. Login is required</p>
+      <p>User on PC should be automatically be redirected. Login is required.</p>
     </div>
   );
 }
