@@ -13,7 +13,7 @@ function YSvn() {
       }, []);
     return (
       <div>
-        <p>Opening Genshin Impact...</p>
+        <p>Đang mở Genshin Impact - Funtap...</p>
       </div>
     );
 }
