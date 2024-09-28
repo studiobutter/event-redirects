@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 
-function CloudYSCN() {
+function CloudSRCN() {
     useEffect(() => { 
       window.location.href = 'srcloud://';
       }, []);
@@ -11,4 +11,4 @@ function CloudYSCN() {
     );
 }
 
-export default CloudYSCN;
+export default CloudSRCN;

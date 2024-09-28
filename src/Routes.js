@@ -16,6 +16,9 @@ import NAPcn from './pages/event/nap_cn';
 import NAPvn from './pages/event/nap_vn';
 
 // miHoYo Cloud
+import CloudYSCN from './pages/event/cg_ys_cn';
+import CloudSRCN from './pages/event/cg_sr_cn';
+import CloudYSGlobal from './pages/event/cg_ys_global';
 
 // TGC
 import Sky from './pages/event/sky';
@@ -25,7 +28,6 @@ import Yu from './pages/event/yu';
 
 import HYLYSOP from './pages/news/ys_op_glb';
 
-import NapWebGlobal from './pages/event/web/nap_web_glb';
 import Genshin4th from './pages/event/web/ysweb4';
 import Yuanshen4 from './pages/event/web/ysweb4_cn';
 import Genshin4thReverie from './pages/event/web/ys4reverie';
@@ -54,9 +56,13 @@ function AppRoutes() {
         <Route path="/event/skybeta" element={<SkyBeta />} />
         <Route path="/event/guangyu" element={<Yu />} />
 
+        <Route path="/event/hk4e_cn_cg" element={<CloudYSCN />} />
+        <Route path="/event/hk4e_cn_glb" element={<CloudYSGlobal />} />
+        <Route path="/event/hkrpg_cn_cg" element={<CloudSRCN />} />
+
+
         <Route path="/news/ys_OP" element={<HYLYSOP/>} />
 
-        <Route path="/event/web/nap_glb" element={<NapWebGlobal/>} />
         <Route path="/event/web/Genshin4th" element={<Genshin4th/>} />
         <Route path="/event/web/ys4" element={<Yuanshen4/>} />
         <Route path="/event/web/GenshinReverie" element={<Genshin4thReverie/>} />
