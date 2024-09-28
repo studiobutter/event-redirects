@@ -28,6 +28,8 @@ import HYLYSOP from './pages/news/ys_op_glb';
 import NapWebGlobal from './pages/event/web/nap_web_glb';
 import Genshin4th from './pages/event/web/ysweb4';
 import Yuanshen4 from './pages/event/web/ysweb4_cn';
+import Genshin4thReverie from './pages/event/web/ys4reverie';
+import YuanshenSL from './pages/event/web/ys4reverie_cn';
 
 
 
@@ -57,6 +59,8 @@ function AppRoutes() {
         <Route path="/event/web/nap_glb" element={<NapWebGlobal/>} />
         <Route path="/event/web/Genshin4th" element={<Genshin4th/>} />
         <Route path="/event/web/ys4" element={<Yuanshen4/>} />
+        <Route path="/event/web/GenshinReverie" element={<Genshin4thReverie/>} />
+        <Route path="/event/web/ys_sl" element={<YuanshenSL/>} />
 
       </Routes>
     </Router>
