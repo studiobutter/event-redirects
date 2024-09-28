@@ -13,7 +13,7 @@ function YScn() {
       }, []);
     return (
       <div>
-        <p>Opening Genshin Impact...</p>
+        <p>开放原神...</p>
       </div>
     );
 }
