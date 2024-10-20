@@ -26,17 +26,6 @@ import SkyBeta from './pages/event/sky-beta';
 import Yu from './pages/event/yu';
 // Testing
 
-import HYLYSOP from './pages/news/ys_op_glb';
-
-import Genshin4th from './pages/event/web/ysweb4';
-import Yuanshen4 from './pages/event/web/ysweb4_cn';
-import Genshin4thReverie from './pages/event/web/ys4reverie';
-import YuanshenSL from './pages/event/web/ys4reverie_cn';
-import XilonenEvent from './pages/event/web/xilonen_glb';
-
-
-
-
 function AppRoutes() {
   return (
     <Router>
@@ -61,15 +50,6 @@ function AppRoutes() {
         <Route path="/event/hk4e_cn_cg" element={<CloudYSCN />} />
         <Route path="/event/hk4e_cn_glb" element={<CloudYSGlobal />} />
         <Route path="/event/hkrpg_cn_cg" element={<CloudSRCN />} />
-
-
-        <Route path="/news/ys_OP" element={<HYLYSOP/>} />
-
-        <Route path="/event/web/Genshin4th" element={<Genshin4th/>} />
-        <Route path="/event/web/ys4" element={<Yuanshen4/>} />
-        <Route path="/event/web/GenshinReverie" element={<Genshin4thReverie/>} />
-        <Route path="/event/web/ys_sl" element={<YuanshenSL/>} />
-        <Route path='/event/web/xilonen_glb' element={<XilonenEvent/>} />
 
       </Routes>
     </Router>
