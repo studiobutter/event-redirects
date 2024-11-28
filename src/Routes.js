@@ -37,8 +37,8 @@ function AppRoutes() {
         <Route path="/event/ysvn" element={<YSvn />} />
         <Route path="/event/yuanshen" element={<YScn />} />
         <Route path="/event/hsr" element={<SRglobal />} />
-        <Route path="/event/srmihoyo" element={<SRcn />} />
-        <Route path="/event/srvn" element={<SRvn />} />
+        <Route path="/event/sr" element={<SRcn />} />
+        <Route path="/event/hsrvn" element={<SRvn />} />
         <Route path="/event/zzz" element={<NAPglobal />} />
         <Route path="/event/nap" element={<NAPcn />} />
         <Route path="/event/zzzvn" element={<NAPvn />} />
@@ -47,9 +47,9 @@ function AppRoutes() {
         <Route path="/event/skybeta" element={<SkyBeta />} />
         <Route path="/event/guangyu" element={<Yu />} />
 
-        <Route path="/event/hk4e_cn_cg" element={<CloudYSCN />} />
-        <Route path="/event/hk4e_cn_glb" element={<CloudYSGlobal />} />
-        <Route path="/event/hkrpg_cn_cg" element={<CloudSRCN />} />
+        <Route path="/event/ys_cg" element={<CloudYSCN />} />
+        <Route path="/event/genshin_cloud" element={<CloudYSGlobal />} />
+        <Route path="/event/sr_cg" element={<CloudSRCN />} />
 
       </Routes>
     </Router>
