@@ -13,7 +13,7 @@ function NAPcn() {
       }, []);
     return (
       <div>
-        <p>Opening Zenless Zone Zero...</p>
+        <p>开放绝区零...</p>
       </div>
     );
 }

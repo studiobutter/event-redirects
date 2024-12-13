@@ -13,7 +13,7 @@ function SkyBeta() {
       }, []);
     return (
       <div>
-        <p>Opening Sky: Children of the Light...</p>
+        <p>Opening [BETA] Sky: Children of the Light...</p>
       </div>
     );
 }

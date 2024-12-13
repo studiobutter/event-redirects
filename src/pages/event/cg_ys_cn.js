@@ -6,7 +6,7 @@ function CloudYSCN() {
       }, []);
     return (
       <div>
-        <p>Opening Genshin Impact - Cloud</p>
+        <p>云·原神开幕...</p>
       </div>
     );
 }

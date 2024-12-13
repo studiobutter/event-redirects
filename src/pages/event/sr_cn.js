@@ -13,7 +13,7 @@ function SRcn() {
       }, []);
     return (
       <div>
-        <p>Opening Honkai: Star Rail...</p>
+        <p>开幕崩坏：星穹铁道...</p>
       </div>
     );
 }

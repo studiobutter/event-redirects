@@ -13,7 +13,7 @@ function NAPvn() {
       }, []);
     return (
       <div>
-        <p>Opening Zenless Zone Zero...</p>
+        <p>Đang mởmở Zenless Zone Zero - Gamota...</p>
       </div>
     );
 }

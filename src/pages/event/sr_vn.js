@@ -13,7 +13,7 @@ function SRvn() {
       }, []);
     return (
       <div>
-        <p>Opening Honkai: Star Rail...</p>
+        <p>Đang mở Honkai: Star Rail - 3T Online...</p>
       </div>
     );
 }
