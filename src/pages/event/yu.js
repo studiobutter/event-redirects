@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
+import { isMobile } from 'react-device-detect'
 
-function Yu() {
+function Sky() {
     useEffect(() => { 
-      window.location.href = 'sky-dev://';
+        if (isMobile) {
+          // Redirect to mobile page
+          window.location.href = 'sky-dev://';
+        } else {
+          // Redirect to desktop page
+          window.location.href = 'fevergames://mygame/?gameId=63';
+        }
       }, []);
     return (
       <div>
-        <p>Opening Sky: Children of the Light...</p>
+        <p>开业光·遇...</p>
       </div>
     );
 }
 
-// Why Dev?????????
-
-export default Yu;
+export default Sky;
