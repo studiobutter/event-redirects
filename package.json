@@ -23,6 +23,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "overrides": {
+    "css-select": "4.0.0",
+    "postcss": "8.4.49",
+    "nth-check": "2.0.1"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -42,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "@babel/plugin-transform-private-property-in-object": "^7.18.6"
   }
 }
