@@ -19,6 +19,7 @@ import NAPvn from './pages/event/nap_vn';
 import CloudYSCN from './pages/event/cg_ys_cn';
 import CloudSRCN from './pages/event/cg_sr_cn';
 import CloudYSGlobal from './pages/event/cg_ys_global';
+import CloudNAPCN from './pages/event/cg_nap_cn';
 
 // TGC
 import Sky from './pages/event/sky';
@@ -48,8 +49,9 @@ function AppRoutes() {
         <Route path="/event/guangyu" element={<Yu />} />
 
         <Route path="/event/ys_cg" element={<CloudYSCN />} />
-        <Route path="/event/genshin_cloud" element={<CloudYSGlobal />} />
         <Route path="/event/sr_cg" element={<CloudSRCN />} />
+        <Route path="/event/nap_cg" element={<CloudNAPCN />} />
+        <Route path="/event/genshin_cloud" element={<CloudYSGlobal />} />
 
       </Routes>
     </Router>

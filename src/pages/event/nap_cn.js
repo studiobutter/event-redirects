@@ -13,7 +13,7 @@ function NAPcn() {
       }, []);
     return (
       <div>
-        <p>开放绝区零...</p>
+        <p>启动绝区零...</p>
       </div>
     );
 }

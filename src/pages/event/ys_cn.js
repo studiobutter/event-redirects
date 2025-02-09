@@ -13,7 +13,7 @@ function YScn() {
       }, []);
     return (
       <div>
-        <p>开放原神...</p>
+        <p>启动原神...</p>
       </div>
     );
 }

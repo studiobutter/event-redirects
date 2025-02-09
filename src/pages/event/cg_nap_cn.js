@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 
-function CloudYSCN() {
+function CloudNAPCN() {
     useEffect(() => { 
-      window.location.href = 'yscloud://';
+      window.location.href = 'cloudnap://';
       }, []);
     return (
       <div>
-        <p>启动云·原神...</p>
+        <p>启动云·绝区零...</p>
       </div>
     );
 }
 
-export default CloudYSCN;
+export default CloudSRCN;

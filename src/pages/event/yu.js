@@ -13,7 +13,7 @@ function Sky() {
       }, []);
     return (
       <div>
-        <p>开业光·遇...</p>
+        <p>启动光·遇...</p>
       </div>
     );
 }

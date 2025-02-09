@@ -6,7 +6,7 @@ function CloudSRCN() {
       }, []);
     return (
       <div>
-        <p>云·星穹铁道开幕...</p>
+        <p>启动云·星穹铁道...</p>
       </div>
     );
 }
