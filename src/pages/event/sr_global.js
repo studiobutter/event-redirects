@@ -13,7 +13,7 @@ function SRglobal() {
       }, []);
     return (
       <div>
-        <p>Opening Honkai: Star Rail...</p>
+        <p>{isMobile ? "Opening Honkai: Star Rail" : "Opening HoYoPlay"}</p>
       </div>
     );
 }
