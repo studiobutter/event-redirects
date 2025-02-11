@@ -13,7 +13,7 @@ function YSvn() {
       }, []);
     return (
       <div>
-        <p>Đang mở Genshin Impact - Funtap...</p>
+        <p>{isMobile ? "Đang mở Genshin Impact - Funtap" : "Đang mở HoYoPlay"}</p>
       </div>
     );
 }

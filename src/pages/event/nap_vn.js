@@ -13,7 +13,7 @@ function NAPvn() {
       }, []);
     return (
       <div>
-        <p>Đang mởmở Zenless Zone Zero - Gamota...</p>
+        <p>{isMobile ? "Đang mở Zenless Zone Zero - Gamota" : "Đang mở HoYoPlay"}</p>
       </div>
     );
 }

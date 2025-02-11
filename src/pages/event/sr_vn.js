@@ -13,7 +13,7 @@ function SRvn() {
       }, []);
     return (
       <div>
-        <p>Đang mở Honkai: Star Rail - 3T Online...</p>
+        <p>{isMobile ? "Đang mở Honkai: Star Rail - 3T Online" : "Đang mở HoYoPlay"}</p>
       </div>
     );
 }

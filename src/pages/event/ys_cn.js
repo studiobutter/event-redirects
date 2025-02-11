@@ -14,6 +14,7 @@ function YScn() {
     return (
       <div>
         <p>启动原神...</p>
+        <p>{isMobile ? "启动原神..." : "启动米哈游启动器..."}</p>
       </div>
     );
 }

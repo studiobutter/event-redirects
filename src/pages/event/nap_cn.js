@@ -13,7 +13,7 @@ function NAPcn() {
       }, []);
     return (
       <div>
-        <p>启动绝区零...</p>
+        <p>{isMobile ? "启动绝区零..." : "启动米哈游启动器..."}</p>
       </div>
     );
 }

@@ -13,7 +13,7 @@ function NAPglobal() {
       }, []);
     return (
       <div>
-        <p>Opening Zenless Zone Zero...</p>
+        <p>{isMobile ? "Opening Zenless Zone Zero" : "Opening HoYoPlay"}</p>
       </div>
     );
 }

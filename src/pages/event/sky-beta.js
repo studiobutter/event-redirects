@@ -13,7 +13,8 @@ function SkyBeta() {
       }, []);
     return (
       <div>
-        <p>Opening [BETA] Sky: Children of the Light...</p>
+        <p>{isMobile ? "Opening [BETA] Sky: Children of the Light..." : "Opening [BETA] Sky: Children of the Light in Steam..."}</p>
+        <p>If this didn't (ask you to) open Sky Beta, you may not have the game installed. As such, please join the official <a href='https://discord.gg/thatskygame'>Discord Server</a> to get the Beta Testing invitation.</p>
       </div>
     );
 }

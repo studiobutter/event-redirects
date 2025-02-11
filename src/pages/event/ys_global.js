@@ -13,7 +13,7 @@ function YSglobal() {
       }, []);
     return (
       <div>
-        <p>Opening Genshin Impact...</p>
+        <p>{isMobile ? "Opening Genshin Impact" : "Opening HoYoPlay"}</p>
       </div>
     );
 }
