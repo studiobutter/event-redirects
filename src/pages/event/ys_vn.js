@@ -14,6 +14,13 @@ function YSvn() {
     return (
       <div>
         <p>{isMobile ? "Đang mở Genshin Impact - Funtap" : "Đang mở HoYoPlay"}</p>
+
+        <p style={{ display: 'inline', marginRight: '1px' }}>Nếu trò chơi không mở hoặc hiện lên ghi lỗi không xác đình, thì chắc là bạn không có trò chơi đó. Vui lòng tải trò chơi </p>
+          {isMobile ? (
+          <a href='https://hoyo.link/6uHgFEAL'>tại đây</a>
+          ) : (
+          <a href='https://sg-public-api.hoyoverse.com/event/download_porter/trace/hyp_global/hyphoyoverse/default'>tại đây</a>
+          )}
       </div>
     );
 }
