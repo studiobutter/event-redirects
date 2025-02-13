@@ -15,7 +15,12 @@ function YScn() {
       <div>
         <p>{isMobile ? "启动原神..." : "启动米哈游启动器..."}</p>
 
-        <p>{isMobile ? "如果应用程序无法打开或出现无效错误，请<a href='https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default'>此处</a>下载应用程序" : "如果应用程序无法打开或出现无效错误，请<a href='https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default'>此处</a>下载应用程序"}</p>
+        <p style={{ display: 'inline', marginRight: '1px' }} >如果应用程序无法打开或出现无效错误，请</p>
+
+        {isMobile ? 
+        (<a href='https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default'>此处</a>) : (
+        <a href='https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default'>此处</a>)}
+        <p style={{ display: 'inline', marginRight: '1px' }}>下载应用程序</p>
       </div>
     );
 }
