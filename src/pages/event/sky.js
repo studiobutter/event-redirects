@@ -13,7 +13,7 @@ function Sky() {
       }, []);
     return (
       <div>
-        <p>Opening Sky: Children of the Light...</p>
+        <p>{isMobile ? "Opening Sky: Children of the Light..." : "Opening Sky: Children of the Light in Steam..."}</p>
 
         <p>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game <a href='https://www.thatskygame.com/'>here</a></p>
       </div>
