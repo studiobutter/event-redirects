@@ -7,6 +7,8 @@ function CloudYSGlobal() {
     return (
       <div>
         <p>Opening Genshin Impact - Cloud</p>
+
+        <p>If the application fails to open or throws an invalid error, please download the application <a href='https://cloudgenshin.hoyoverse.com/'>here</a></p>
       </div>
     );
 }
