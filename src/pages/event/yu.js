@@ -14,6 +14,7 @@ function Sky() {
     return (
       <div>
         <p>启动光·遇...</p>
+        <p>如果应用程序无法打开或出现无效错误，请<a href='https://sky.163.com'>此处</a>下载应用程序</p>
       </div>
     );
 }

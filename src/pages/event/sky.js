@@ -14,6 +14,8 @@ function Sky() {
     return (
       <div>
         <p>Opening Sky: Children of the Light...</p>
+
+        <p>If the application fails to open or throws an invalid error, please download the application <a href='https://www.thatskygame.com/'>here</a></p>
       </div>
     );
 }
