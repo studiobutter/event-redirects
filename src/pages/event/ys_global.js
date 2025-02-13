@@ -14,6 +14,8 @@ function YSglobal() {
     return (
       <div>
         <p>{isMobile ? "Opening Genshin Impact" : "Opening HoYoPlay"}</p>
+
+        <p>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game {isMobile ? "<a href='https://hoyo.link/euHgFDAL'>here</a>" : "<a href='https://sg-public-api.hoyoverse.com/event/download_porter/trace/hyp_global/hyphoyoverse/default'>here</a>"}</p>
       </div>
     );
 }
