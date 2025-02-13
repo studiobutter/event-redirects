@@ -18,7 +18,8 @@ function YScn() {
         <p style={{ display: 'inline', marginRight: '1px' }} >如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在</p>
 
         {isMobile ? 
-        (<a href='https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default'>此处</a>) : (
+        (<a href='https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default'>此处</a>
+        ) : (
         <a href='https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default'>此处</a>)}
         <p style={{ display: 'inline', marginRight: '1px' }}>下载游戏</p>
       </div>
