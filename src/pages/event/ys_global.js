@@ -15,7 +15,7 @@ function YSglobal() {
       <div>
         <p>{isMobile ? "Opening Genshin Impact" : "Opening HoYoPlay"}</p>
 
-        <p style={{ display: 'inline', marginRight: '5px' }}>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game </p>
+        <p style={{ display: 'inline', marginRight: '2px' }}>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game </p>
         {isMobile ? (
           <a href='https://hoyo.link/euHgFDAL'>here</a>
            ) : (
