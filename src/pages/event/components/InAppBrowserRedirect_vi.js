@@ -35,7 +35,7 @@ const InAppBrowserRedirectVI = () => {
 
     if (isIOS) {
       // Force Safari using the x-safari-https: scheme.
-      window.location.href = `x-safari-https:${currentUrl.replace(/^https?:\/\//, '')}`;
+      window.location.href = `x-safari-${currentUrl}`;
     } else if (isAndroid) {
       // Check if the device appears to be using Chrome.
       const isChrome = /Chrome/.test(userAgent);
