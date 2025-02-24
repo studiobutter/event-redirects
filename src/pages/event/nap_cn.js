@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
+import InAppBrowserRedirectZH from './components/InAppBrowserRedirect_zh-Hans';
+
 function NAPcn() {
     useEffect(() => { 
         if (isMobile) {
@@ -13,6 +15,7 @@ function NAPcn() {
       }, []);
     return (
       <div>
+        <InAppBrowserRedirectZH />
         <p>{isMobile ? "启动绝区零..." : "启动米哈游启动器..."}</p>
 
         <p style={{ display: 'inline', marginRight: '1px' }} >如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在</p>

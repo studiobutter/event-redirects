@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
+import InAppBrowserRedirectVI from './components/InAppBrowserRedirect_vi';
+
 function NAPvn() {
     useEffect(() => { 
         if (isMobile) {
@@ -13,7 +15,8 @@ function NAPvn() {
       }, []);
     return (
       <div>
-        <p>{isMobile ? "Đang mở Zenless Zone Zero - Gamota" : "Đang mở HoYoPlay"}</p>
+        <InAppBrowserRedirectVI />
+        <p>{isMobile ? "Đang mở Zenless Zone Zero - Gamota..." : "Đang mở HoYoPlay..."}</p>
 
         <p style={{ display: 'inline', marginRight: '1px' }}>Nếu trò chơi không mở hoặc hiện lên ghi lỗi không xác đình, thì chắc là bạn không có trò chơi đó. Vui lòng tải trò chơi </p>
           {isMobile ? (

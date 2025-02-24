@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
+import InAppBrowserRedirectZH from './components/InAppBrowserRedirect_zh-Hans';
+
 function Sky() {
     useEffect(() => { 
         if (isMobile) {
@@ -13,6 +15,7 @@ function Sky() {
       }, []);
     return (
       <div>
+        <InAppBrowserRedirectZH />
         <p>启动光·遇...</p>
         <p>如果游戏无法打开或出现无效错误，则您可能没有该游戏。请从<a href='https://sky.163.com/'>此处</a>下载游戏</p>
       </div>

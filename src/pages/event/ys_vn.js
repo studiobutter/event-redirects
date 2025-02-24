@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
+import InAppBrowserRedirectVI from './components/InAppBrowserRedirect_vi';
+
 function YSvn() {
     useEffect(() => { 
         if (isMobile) {
@@ -13,6 +15,7 @@ function YSvn() {
       }, []);
     return (
       <div>
+        <InAppBrowserRedirectVI />
         <p>{isMobile ? "Đang mở Genshin Impact - Funtap" : "Đang mở HoYoPlay"}</p>
 
         <p style={{ display: 'inline', marginRight: '1px' }}>Nếu trò chơi không mở hoặc hiện lên ghi lỗi không xác đình, thì chắc là bạn không có trò chơi đó. Vui lòng tải trò chơi </p>

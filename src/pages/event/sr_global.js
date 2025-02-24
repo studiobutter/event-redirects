@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
+import InAppBrowserRedirect from './components/InAppBrowserRedirect';
+
 function SRglobal() {
     useEffect(() => { 
         if (isMobile) {
@@ -13,7 +15,8 @@ function SRglobal() {
       }, []);
     return (
       <div>
-        <p>{isMobile ? "Opening Honkai: Star Rail" : "Opening HoYoPlay"}</p>
+        <InAppBrowserRedirect />
+        <p>{isMobile ? "Opening Honkai: Star Rail..." : "Opening HoYoPlay..."}</p>
 
         <p style={{ display: 'inline', marginRight: '1px' }}>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game </p>
         {isMobile ? (

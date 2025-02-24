@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
+import InAppBrowserRedirect from './components/InAppBrowserRedirect';
+
 function Sky() {
     useEffect(() => { 
         if (isMobile) {
@@ -13,6 +15,7 @@ function Sky() {
       }, []);
     return (
       <div>
+        <InAppBrowserRedirect />
         <p>{isMobile ? "Opening Sky: Children of the Light..." : "Opening Sky: Children of the Light in Steam..."}</p>
 
         <p>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game <a href='https://www.thatskygame.com/'>here</a></p>
