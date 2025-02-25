@@ -10,7 +10,7 @@ const InAppBrowserRedirect = () => {
   // Detect if the user agent is one of the miHoYo in-app browsers.
   const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
   // Detect common in-app browsers (Facebook, Instagram, Twitter, Snapchat, TikTok, Line)
-  const isCommonInApp = /FBAN|FBAV|Instagram|Twitter|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen/i.test(userAgent);
+  const isCommonInApp = /FBAN|FBAV|Instagram|Twitter|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
   // Overall, determine if this is an in-app browser
   const isInApp = isMiHoYo || isCommonInApp;
 
