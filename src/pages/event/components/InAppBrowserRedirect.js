@@ -9,10 +9,21 @@ const InAppBrowserRedirect = () => {
 
   // Detect if the user agent is one of the miHoYo in-app browsers.
   const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
-  // Detect common in-app browsers (Facebook, Instagram, Twitter, Snapchat, TikTok, Line)
-  const isCommonInApp = /FBAN|FBAV|Instagram|Twitter|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
-  // Overall, determine if this is an in-app browser
-  const isInApp = isMiHoYo || isCommonInApp;
+  const isInstagramInApp = /Instagram/.test(userAgent);
+  const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+  const isAndroid = /Android/.test(userAgent);
+  const isCommonInApp = /FBAN|FBAV|Twitter|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
+  const isInApp = isMiHoYo || isCommonInApp || isInstagramInApp;
+
+  useEffect(() => {
+    if (isMobile && isInApp) {
+      if (isMiHoYo || (isIOS && isInstagramInApp)) {
+        setFallbackVisible(true);
+      } else if (isAndroid) {
+        openInSystemBrowser();
+      }
+    }
+  }, []);
 
   useEffect(() => {
     // Only act if we are on mobile and in an in-app browser.
