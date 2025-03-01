@@ -3,38 +3,36 @@ import { isMobile } from 'react-device-detect'
 
 import InAppBrowserRedirect from './components/InAppBrowserRedirect';
 
+const Url = 'https://store.steampowered.com/app/2325290/Sky_Children_of_the_Light/'
+const Android_Url = 'https://play.google.com/store/apps/details?id=com.tgc.sky.android'
+const iOS_Url = 'https://apps.apple.com/us/app/sky-children-of-the-light/id1462117269'
+
 function Sky() {
-    useEffect(() => { 
-        if (isMobile) {
-          // Redirect to mobile page
-            setTimeout(() => {
-            window.location.href = 'sky://';
-            }, 5000);
-        } else {
-          // Redirect to desktop page
-          setTimeout(() => {
-            window.location.href = 'steam://rungameid/232529';
-            }, 5000);
-        }
-      }, []);
-    const [countdown, setCountdown] = React.useState(5);
+  useEffect(() => { 
+    if (isMobile) {
+      // Redirect to mobile page
+      window.location.href = 'sky://';
+    } else {
+      // Redirect to desktop page
+      window.location.href = 'steam://rungameid/232529';
+    }
+  }, []);
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    useEffect(() => {
-      const timer = setInterval(() => {
-      setCountdown(prevCountdown => prevCountdown - 1);
-      }, 1000);
+    let downloadUrl = Url;
+    if (/android/i.test(userAgent)) {
+      downloadUrl = Android_Url;
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      downloadUrl = iOS_Url;
+    }
 
-      return () => clearInterval(timer);
-    }, []);
-
-    return (
-      <div>
+  return (
+    <div>
       <InAppBrowserRedirect />
       <p>{isMobile ? "Opening Sky: Children of the Light... " : "Opening Sky: Children of the Light in Steam..."}</p>
-      <p>Opening in {countdown} seconds...</p>
-      <p>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game <a href='https://www.thatskygame.com/'>here</a></p>
-      </div>
-    );
+      <p>If the game fails to open or throws an invalid error, then you might not have the game. Please download the game <a href={downloadUrl}>here</a></p>
+    </div>
+  );
 }
 
 export default Sky;
