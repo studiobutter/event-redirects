@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import InAppBrowserRedirect from './components/InAppBrowserRedirect';
 
-iOS_Url = 'https://apps.apple.com/sg/app/genshin-impact-cloud/id6446889955'
-Android_Url = 'https://play.google.com/store/apps/details?id=com.hoyoverse.cloudgames.GenshinImpact'
-Url = 'https://sg-public-api.hoyoverse.com/event/download_porter/trace/clgm_global/genshincloud/default'
+const iOS_Url = 'https://apps.apple.com/sg/app/genshin-impact-cloud/id6446889955'
+const Android_Url = 'https://play.google.com/store/apps/details?id=com.hoyoverse.cloudgames.GenshinImpact'
+const Url = 'https://sg-public-api.hoyoverse.com/event/download_porter/trace/clgm_global/genshincloud/default'
 
 function CloudYSGlobal() {
     useEffect(() => { 
