@@ -1,25 +1,11 @@
-import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
-import { isMobile } from 'react-device-detect'
-
-import InAppBrowserRedirect from './components/InAppBrowserRedirect';
+import React from 'react';
 
 function SkyBeta() {
-    useEffect(() => { 
-        if (isMobile) {
-          // Redirect to mobile page
-          window.location.href = 'sky-beta://';
-        } else {
-          // Redirect to desktop page
-          window.location.href = 'steam://rungameid/2434520';
-        }
-      }, []);
-    return (
-      <div>
-        <InAppBrowserRedirect />
-        <p>{isMobile ? "Opening [BETA] Sky: Children of the Light..." : "Opening [BETA] Sky: Children of the Light in Steam..."}</p>
-        <p>If this didn't (ask you to) open Sky Beta or you encounter an error prompting link is invalid, you may not have the game installed. As such, please join the official <a href='https://discord.gg/thatskygame'>Discord Server</a> to get the Beta Testing invitation.</p>
-      </div>
-    );
+  return (
+    <div>
+      <p>This link no longer works as Sky has officially closed its Open Beta.</p>
+    </div>
+  );
 }
 
 export default SkyBeta;
