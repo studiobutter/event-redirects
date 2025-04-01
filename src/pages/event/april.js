@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 
-const Url = 'https://www.youtube.com/embed/dQw4w9WgXcQ?si=1_dtZGeKhSwWiTN8';
+const Url = 'https://www.youtube.com/embed/dQw4w9WgXcQ?si=1_dtZGeKhSwWiTN8&autoplay=1';
 
 function April() {
 
