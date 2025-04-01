@@ -27,6 +27,8 @@ import SkyBeta from './pages/event/sky-beta';
 import Yu from './pages/event/yu';
 // Testing
 
+import April from './pages/event/april';
+
 function AppRoutes() {
   return (
     <Router>
@@ -52,6 +54,8 @@ function AppRoutes() {
         <Route path="/event/sr_cg" element={<CloudSRCN />} />
         <Route path="/event/nap_cg" element={<CloudNAPCN />} />
         <Route path="/event/genshin_cloud" element={<CloudYSGlobal />} />
+
+        <Route path="/event/special" element={<April />} />
 
       </Routes>
     </Router>
