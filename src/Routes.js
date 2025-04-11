@@ -29,12 +29,20 @@ import Yu from './pages/event/yu';
 
 import April from './pages/event/april';
 
+// Tempoary Links
+
+import Image1 from './pages/tempURL/image1';
+import Image2 from './pages/tempURL/image2';
+
 function AppRoutes() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<Home />} />
+
+        <Route path="/tempURL/image1" element={<Image1 />} />
+        <Route path="/tempURL/image2" element={<Image2 />} />
         
         <Route path="/event/genshin" element={<YSglobal />} />
         <Route path="/event/ysvn" element={<YSvn />} />
