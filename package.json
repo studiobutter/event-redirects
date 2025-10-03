@@ -2,52 +2,29 @@
   "name": "event-redirects",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://studiobutter.github.io/event-redirects",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "clipboard": "^2.0.11",
-    "react": "^18.3.1",
-    "react-device-detect": "^2.2.3",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "overrides": {
-    "css-select": "4.0.0",
-    "postcss": "8.4.49",
-    "nth-check": "2.0.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "clipboard": "^2.0.11",
+    "react": "^19.1.1",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1",
-    "@babel/plugin-transform-private-property-in-object": "^7.18.6"
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "vite": "^7.1.7"
   }
 }
