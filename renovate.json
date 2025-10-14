@@ -1,17 +1,18 @@
 {
-  "extends": ["config:base"],
-  "packageRules": [
-    {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
-    }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>yourusername/renovate-config"
   ],
-  "schedule": ["before 5am on monday"], 
-  "prHourlyLimit": 5,
-  "prConcurrentLimit": 10
+  "timezone": "Asia/Ho_Chi_Minh",
+  "schedule": ["at 8:00 am on Monday"],
+  "dependencyDashboard": false,
+
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr",
+    "automergeStrategy": "squash",
+    "platformAutomerge": false,
+    "schedule": ["at 8:00 am on Monday"]
+  }
 }
