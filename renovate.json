@@ -1,6 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    "local>yourusername/renovate-config"
+  ],
+  "timezone": "Asia/Ho_Chi_Minh",
+  "schedule": ["at 8:00 am on Monday"],
+  "dependencyDashboard": false,
+
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr",
+    "automergeStrategy": "squash",
+    "platformAutomerge": false,
+    "schedule": ["at 8:00 am on Monday"]
+  }
 }
