@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "local>yourusername/renovate-config"
+    "local>studiobutter/renovate-config"
   ],
   "timezone": "Asia/Ho_Chi_Minh",
   "schedule": ["at 8:00 am on Monday"],
