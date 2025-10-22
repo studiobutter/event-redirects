@@ -10,7 +10,7 @@ function SRcn() {
           window.location.href = 'starrailmihoyo://';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-cn://launchgame?gamebiz=hkrpg_cn';
+          window.location.href = 'hyp-cn://launchgame?gamebiz=hkrpg_cn&openGame=true';
         }
       }, []);
     return (

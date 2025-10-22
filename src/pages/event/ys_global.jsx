@@ -10,7 +10,7 @@ function YSglobal() {
           window.location.href = 'genshin://';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-global://launchgame?gamebiz=hk4e_global';
+          window.location.href = 'hyp-global://launchgame?gamebiz=hk4e_global&openGame=true';
         }
       }, []);
     return (

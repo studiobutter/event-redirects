@@ -10,7 +10,7 @@ function NAPcn() {
           window.location.href = 'zenless://';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-cn://launchgame?gamebiz=nap_cn';
+          window.location.href = 'hyp-cn://launchgame?gamebiz=nap_cn&openGame=true';
         }
       }, []);
     return (
