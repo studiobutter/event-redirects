@@ -10,7 +10,7 @@ function NAPvn() {
           window.location.href = 'zenlessvn://';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-global://launchgame?gamebiz=nap_global';
+          window.location.href = 'hyp-global://launchgame?gamebiz=nap_global&openGame=true';
         }
       }, []);
     return (

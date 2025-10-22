@@ -10,7 +10,7 @@ function SRglobal() {
           window.location.href = 'honkaistarrail://';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-global://launchgame?gamebiz=hkrpg_global';
+          window.location.href = 'hyp-global://launchgame?gamebiz=hkrpg_global&openGame=true';
         }
       }, []);
     return (

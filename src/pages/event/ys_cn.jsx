@@ -10,7 +10,7 @@ function YScn() {
           window.location.href = 'yuanshen://';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-cn://launchgame?gamebiz=hk4e_cn';
+          window.location.href = 'hyp-cn://launchgame?gamebiz=hk4e_cn&openGame=true';
         }
       }, []);
     return (
