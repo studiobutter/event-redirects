@@ -26,6 +26,9 @@ import CloudNAPCN from './pages/event/cg_nap_cn';
 import Sky from './pages/event/sky';
 import Yu from './pages/event/yu';
 
+// Miliastra Wonderland Level Sharing
+import MWWishSim from './pages/ugc/wish_asia';
+
 function AppRoutes() {
   return (
     <Router>
@@ -53,6 +56,7 @@ function AppRoutes() {
         <Route path="/event/nap_cg" element={<CloudNAPCN />} />
         <Route path="/event/genshin_cloud" element={<CloudYSGlobal />} />
 
+        <Route path="/ugc/wishsim_asia" element={<MWWishSim />} />
       </Routes>
     </Router>
   );
