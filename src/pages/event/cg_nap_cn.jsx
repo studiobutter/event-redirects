@@ -1,5 +1,5 @@
 import { useEffect } from 'react'; // eslint-disable-line no-unused-vars
-import InAppBrowserRedirectZH from './components/InAppBrowserRedirect_zh-Hans';
+import InAppBrowserRedirectZH from '../components/InAppBrowserRedirect_zh-Hans';
 
 const iOS_Url = 'https://act-api-takumi.mihoyo.com/event/download_porter/link/clgm_nap-cn/official/ios_default'
 const Android_Url = 'https://act-api-takumi.mihoyo.com/event/download_porter/link/clgm_nap-cn/official/android_cloudgame'
