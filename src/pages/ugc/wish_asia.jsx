@@ -3,14 +3,14 @@ import { isMobile } from 'react-device-detect'
 
 import InAppBrowserRedirect from '../components/InAppBrowserRedirect';
 
-function YSglobal() {
+function MWWishSim() {
     useEffect(() => { 
         if (isMobile) {
           // Redirect to mobile page
-          window.location.href = 'genshin://';
+          window.location.href = 'genshin://?deferred_deeplink=event_type%3Dugc_level_info%26source%3Dbbs%26activity_id%3D24895436376';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-global://launchgame?gamebiz=hk4e_global&openGame=true';
+          window.location.href = 'hyp-global://launchgame?gamebiz=hk4e_global&openGame=true&deferredDeeplink=event_type%3Dugc_level_info%26activity_id%3D24895436376%26source%3Dbbs&uapc_md5=c1373fe940ff7c2d';
         }
       }, []);
     return (
@@ -24,8 +24,9 @@ function YSglobal() {
            ) : (
            <a href='https://sg-public-api.hoyoverse.com/event/download_porter/trace/hyp_global/hyphoyoverse/default'>here</a>
            )}
+        <p>Wonderland Level ID: 24895436376</p>
       </div>
     );
 }
 
-export default YSglobal;
+export default MWWishSim;

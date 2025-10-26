@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
-import InAppBrowserRedirectZH from './components/InAppBrowserRedirect_zh-Hans';
+import InAppBrowserRedirectZH from '../components/InAppBrowserRedirect_zh-Hans';
 
 function YScn() {
     useEffect(() => { 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
-import InAppBrowserRedirectVI from './components/InAppBrowserRedirect_vi';
+import InAppBrowserRedirectVI from '../components/InAppBrowserRedirect_vi';
 
 function NAPvn() {
     useEffect(() => { 

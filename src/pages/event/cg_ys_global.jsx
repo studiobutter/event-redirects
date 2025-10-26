@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
-import InAppBrowserRedirect from './components/InAppBrowserRedirect';
+import InAppBrowserRedirect from '../components/InAppBrowserRedirect';
 
 const iOS_Url = 'https://apps.apple.com/sg/app/genshin-impact-cloud/id6446889955'
 const Android_Url = 'https://play.google.com/store/apps/details?id=com.hoyoverse.cloudgames.GenshinImpact'

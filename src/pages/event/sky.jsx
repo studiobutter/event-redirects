@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
 import { isMobile } from 'react-device-detect'
 
-import InAppBrowserRedirect from './components/InAppBrowserRedirect';
+import InAppBrowserRedirect from '../components/InAppBrowserRedirect';
 
 const Url = 'https://store.steampowered.com/app/2325290/Sky_Children_of_the_Light/'
 const Android_Url = 'https://play.google.com/store/apps/details?id=com.tgc.sky.android'
