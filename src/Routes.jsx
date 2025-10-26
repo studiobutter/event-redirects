@@ -28,6 +28,7 @@ import Yu from './pages/event/yu';
 
 // Miliastra Wonderland Level Sharing
 import MWWishSim from './pages/ugc/wish_asia';
+import UGCWonderland from './pages/ugc/ugc_global';
 
 function AppRoutes() {
   return (
@@ -57,6 +58,7 @@ function AppRoutes() {
         <Route path="/event/genshin_cloud" element={<CloudYSGlobal />} />
 
         <Route path="/ugc/wishsim_asia" element={<MWWishSim />} />
+        <Route path="/ugc/wonderland" element={<UGCWonderland />} />
       </Routes>
     </Router>
   );
