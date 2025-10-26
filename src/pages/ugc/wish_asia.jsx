@@ -7,10 +7,10 @@ function MWWishSim() {
     useEffect(() => { 
         if (isMobile) {
           // Redirect to mobile page
-          window.location.href = 'genshin://';
+          window.location.href = 'genshin://?deferred_deeplink=event_type%3Dugc_level_info%26source%3Dbbs%26activity_id%3D24895436376';
         } else {
           // Redirect to desktop page
-          window.location.href = 'hyp-global://launchgame?gamebiz=hk4e_global&openGame=true';
+          window.location.href = 'hyp-global://launchgame?gamebiz=hk4e_global&openGame=true&deferredDeeplink=event_type%3Dugc_level_info%26activity_id%3D24895436376%26source%3Dbbs&uapc_md5=c1373fe940ff7c2d';
         }
       }, []);
     return (
