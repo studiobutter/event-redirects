@@ -28,7 +28,7 @@ import Yu from './pages/event/yu';
 
 // Miliastra Wonderland Level Sharing
 import MWWishSim from './pages/ugc/wish_asia';
-import UGCWonderland from '.pages/ugc/ugc_global';
+import UGCWonderland from './pages/ugc/ugc_global';
 
 function AppRoutes() {
   return (
