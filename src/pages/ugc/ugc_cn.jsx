@@ -1,6 +1,6 @@
 import { useEffect } from "react"; // eslint-disable-line no-unused-vars
 import { isMobile } from "react-device-detect";
-import InAppBrowserRedirect from "../components/InAppBrowserRedirect";
+import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
 
 function UGCWonderland() {
   const queryParams = new URLSearchParams(window.location.search);
@@ -9,10 +9,8 @@ function UGCWonderland() {
 
   // Mapping between server keys and readable names
   const serverNames = {
-    os_asia: "Asia",
-    os_usa: "America",
-    os_euro: "Europe",
-    os_cht: "HK/TW/MO",
+    cn_gf01: "天空岛",
+    cn_qd01: "世界树"
   };
 
   const validServers = Object.keys(serverNames);
@@ -21,7 +19,7 @@ function UGCWonderland() {
 
   useEffect(() => {
     if (!isValid) {
-      document.title = "400 Bad Request";
+      document.title = "400 错误的请求";
       try {
         window.history.replaceState({}, "", "/400");
       } catch (e) {
@@ -52,40 +50,34 @@ function UGCWonderland() {
   if (!isValid) {
     return (
       <div style={{ color: "red", textAlign: "center", marginTop: "40px" }}>
-        <h1>400 — Bad Request</h1>
+        <h1>400 — 错误的请求</h1>
         <p>
-          Please provide both <b>ugc_id</b> and <b>server</b> in the URL.
+          请在 URL 中提供 <b>ugc_id (GUID)</b> 和 <b>server (服务器)</b>。
         </p>
-        <p>Example:</p>
-        <code>?ugc_id=24895436376&server=os_asia</code>
+        <p>示例:</p>
+        <code>?ugc_id=24895436376&server=cn_gf01</code>
       </div>
     );
   }
 
   return (
     <div>
-      <InAppBrowserRedirect />
-      <p>{isMobile ? "Opening Genshin Impact..." : "Opening HoYoPlay..."}</p>
+      <InAppBrowserRedirectZH />
+      <p>{isMobile ? "启动原神..." : "启动米哈游启动器..."}</p>
 
       <p style={{ display: "inline", marginRight: "1px" }}>
-        If the game fails to open or throws an invalid error, then you might not
-        have the game. Please download the game{" "}
+        如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在
       </p>
       {isMobile ? (
-        <a href="https://hoyo.link/euHgFDAL">here</a>
+        <a href="https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default">此处</a>
       ) : (
-        <a href="https://sg-public-api.hoyoverse.com/event/download_porter/trace/hyp_global/hyphoyoverse/default">
-          here
+        <a href="https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default">
+          此处
         </a>
       )}
 
-      <p>Wonderland Level ID: {ugcId}</p>
-      <p>Server: {serverDisplayName}</p>
-      <p></p>
-      <p>
-        If you are viewing this in an in-app browser like Twitter, please open
-        this link in your device's browser.
-      </p>
+      <p>GUID: {ugcId}</p>
+      <p>服务器: {serverDisplayName}</p>
     </div>
   );
 }
