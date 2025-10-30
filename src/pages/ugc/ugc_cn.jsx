@@ -2,7 +2,7 @@ import { useEffect } from "react"; // eslint-disable-line no-unused-vars
 import { isMobile } from "react-device-detect";
 import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
 
-function UGCWonderland() {
+function UGCBeyond() {
   const queryParams = new URLSearchParams(window.location.search);
   const ugcId = queryParams.get("ugc_id");
   const server = queryParams.get("server");
@@ -82,4 +82,4 @@ function UGCWonderland() {
   );
 }
 
-export default UGCWonderland;
+export default UGCBeyond;
