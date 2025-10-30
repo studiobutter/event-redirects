@@ -1,32 +1,46 @@
-import React, { useEffect } from 'react'; // eslint-disable-line no-unused-vars
-import { isMobile } from 'react-device-detect'
+import React, { useEffect } from "react"; // eslint-disable-line no-unused-vars
+import { isMobile } from "react-device-detect";
 
-import InAppBrowserRedirectZH from '../components/InAppBrowserRedirect_zh-Hans';
+import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
 
 function NAPcn() {
-    useEffect(() => { 
-        if (isMobile) {
-          // Redirect to mobile page
-          window.location.href = 'zenless://';
-        } else {
-          // Redirect to desktop page
-          window.location.href = 'hyp-cn://launchgame?gamebiz=nap_cn&openGame=true';
-        }
-      }, []);
-    return (
-      <div>
-        <InAppBrowserRedirectZH />
-        <p>{isMobile ? "启动绝区零..." : "启动米哈游启动器..."}</p>
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isInstagram = /Instagram/i.test(userAgent);
+    const isFacebook = /FBAN|FBAV/i.test(userAgent);
+    const isInApp = isInstagram || isFacebook;
 
-        <p style={{ display: 'inline', marginRight: '1px' }} >如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在</p>
-        
-        {isMobile ? 
-        (<a href='https://api-takumi.mihoyo.com/event/download_porter/link/nap_cn/official/android_ldy'>此处</a>
-        ) : (
-        <a href='https://api-takumi.mihoyo.com/event/download_porter/link/nap_cn/official/pc_ldy'>此处</a>)}
-        <p style={{ display: 'inline', marginRight: '1px' }}>下载游戏</p>
-      </div>
-    );
+    if (!isInApp) {
+      if (isMobile) {
+        window.location.href = "zenless://";
+      } else {
+        window.location.href =
+          "hyp-cn://launchgame?gamebiz=nap_cn&openGame=true";
+      }
+    }
+  }, []);
+
+  return (
+    <div>
+      <InAppBrowserRedirectZH />
+      <p>{isMobile ? "启动绝区零..." : "启动米哈游启动器..."}</p>
+
+      <p style={{ display: "inline", marginRight: "1px" }}>
+        如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在
+      </p>
+
+      {isMobile ? (
+        <a href="https://api-takumi.mihoyo.com/event/download_porter/link/nap_cn/official/android_ldy">
+          此处
+        </a>
+      ) : (
+        <a href="https://api-takumi.mihoyo.com/event/download_porter/link/nap_cn/official/pc_ldy">
+          此处
+        </a>
+      )}
+      <p style={{ display: "inline", marginRight: "1px" }}>下载游戏</p>
+    </div>
+  );
 }
 
 export default NAPcn;
