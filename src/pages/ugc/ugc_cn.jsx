@@ -38,10 +38,10 @@ function UGCBeyond() {
 
     if (!isInApp) {
       if (isMobile) {
-        const mobileUri = `genshin://?deferred_deeplink=${encodedMobileDeeplink}`;
+        const mobileUri = `yuanshen://?deferred_deeplink=${encodedMobileDeeplink}`;
         window.location.href = mobileUri;
       } else {
-        const desktopUri = `hyp-global://launchgame?gamebiz=hk4e_global&openGame=true&deferredDeeplink=${encodedDesktopDeeplink}&uapc_md5=c1373fe940ff7c2d`;
+        const desktopUri = `hyp-cn://launchgame?gamebiz=hk4e_cn&openGame=true&deferredDeeplink=${encodedDesktopDeeplink}&uapc_md5=c1373fe940ff7c2d`;
         window.location.href = desktopUri;
       }
     }
