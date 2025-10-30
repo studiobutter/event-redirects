@@ -9,18 +9,22 @@ const InAppBrowserRedirectZH = () => {
 
   // Detect if the user agent is one of the miHoYo in-app browsers.
   const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
+  const isInstagramInApp = /Instagram/i.test(userAgent);
+  // Added explicit Twitter detection to cover UAs like:
+  // "Twitter for iPhone/11.34" and similar variants.
   const isTwitterInApp = /Twitter|Twitter for iPhone|TwitterAndroid/i.test(userAgent);
-  const isInstagramInApp = /Instagram/.test(userAgent);
-  const isIOS = /iPad|iPhone|iPod/.test(userAgent);
-  const isAndroid = /Android/.test(userAgent);
+  // Treat Instagram or Twitter similarly for fallback on iOS.
+  const isInstagramOrTwitter = isInstagramInApp || isTwitterInApp;
+  const isIOS = /iPad|iPhone|iPod/i.test(userAgent);
+  const isAndroid = /Android/i.test(userAgent);
   // Updated common in-app regex to explicitly include Twitter variants.
   const isCommonInApp = /FBAN|FBAV|Twitter|Twitter for iPhone|TwitterAndroid|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
   // Consider Twitter as part of in-app browsers.
-  const isInApp = isMiHoYo || isCommonInApp || isInstagramInApp || isTwitterInApp;
+  const isInApp = isMiHoYo || isCommonInApp || isInstagramOrTwitter;
 
   useEffect(() => {
     if (isMobile && isInApp) {
-      if (isMiHoYo || (isIOS && isInstagramInApp)) {
+      if (isMiHoYo || (isIOS && isInstagramOrTwitter)) {
         setFallbackVisible(true);
       } else if (isAndroid) {
         openInSystemBrowser();
@@ -31,7 +35,7 @@ const InAppBrowserRedirectZH = () => {
   useEffect(() => {
     // Only act if we are on mobile and in an in-app browser.
     if (isMobile && isInApp) {
-      if (isMiHoYo) {
+      if (isMiHoYo || (isIOS && isInstagramOrTwitter)) {
         // For sandboxed miHoYo browsers, show fallback UI.
         setFallbackVisible(true);
       } else if (isCommonInApp) {

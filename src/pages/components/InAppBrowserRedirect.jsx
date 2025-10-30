@@ -117,6 +117,7 @@ const InAppBrowserRedirect = () => {
               <p>Cannot open this page in this app, please open the page in your browser.</p>
               <button class="btn" id="copyBtn">Copy Link</button>
               <p>Paste the link into your browser's address bar.</p>
+              <p>Or press the <strong>...</strong> button in your app and choose open in (external) browser.</p>
             </div>
             <script>
               document.getElementById('copyBtn').addEventListener('click', function() {
