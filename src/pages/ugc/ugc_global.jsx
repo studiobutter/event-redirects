@@ -69,6 +69,8 @@ function UGCWonderland() {
 
       <p>Wonderland Level ID: {ugcId}</p>
       <p>Server: {serverDisplayName}</p>
+      <p></p>
+      <p>If you are viewing this in an in-app browser like Twitter, please open this link in your device's browser.</p>
     </div>
   );
 }
