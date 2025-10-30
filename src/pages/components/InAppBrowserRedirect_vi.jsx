@@ -10,16 +10,18 @@ const InAppBrowserRedirectVI = () => {
   // Detect if the user agent is one of the miHoYo in-app browsers.
   const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
   const isTwitterInApp = /Twitter|Twitter for iPhone|TwitterAndroid/i.test(userAgent);
-  const isInstagramInApp = /Instagram/.test(userAgent);
+  const isInstagramInApp = /Instagram/i.test(userAgent);
+  // Treat Instagram or Twitter similarly for fallback on iOS.
+  const isInstagramOrTwitter = isInstagramInApp || isTwitterInApp;
   const isIOS = /iPad|iPhone|iPod/.test(userAgent);
   const isAndroid = /Android/.test(userAgent);
   const isCommonInApp = /FBAN|FBAV|Twitter|Twitter for iPhone|TwitterAndroid|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
   // Consider Twitter as part of in-app browsers.
-  const isInApp = isMiHoYo || isCommonInApp || isInstagramInApp || isTwitterInApp;
+  const isInApp = isMiHoYo || isCommonInApp || isInstagramOrTwitter;
 
   useEffect(() => {
     if (isMobile && isInApp) {
-      if (isMiHoYo || (isIOS && isInstagramInApp)) {
+      if (isMiHoYo || (isIOS && isInstagramOrTwitter)) {
         setFallbackVisible(true);
       } else if (isAndroid) {
         openInSystemBrowser();
