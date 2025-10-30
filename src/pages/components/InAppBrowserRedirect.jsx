@@ -1,5 +1,5 @@
 // src/components/InAppBrowserRedirect.js
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
 
 const InAppBrowserRedirect = () => {
@@ -9,11 +9,16 @@ const InAppBrowserRedirect = () => {
 
   // Detect if the user agent is one of the miHoYo in-app browsers.
   const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
-  const isInstagramInApp = /Instagram/.test(userAgent);
-  const isIOS = /iPad|iPhone|iPod/.test(userAgent);
-  const isAndroid = /Android/.test(userAgent);
-  const isCommonInApp = /FBAN|FBAV|Twitter|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
-  const isInApp = isMiHoYo || isCommonInApp || isInstagramInApp;
+  const isInstagramInApp = /Instagram/i.test(userAgent);
+  // Added explicit Twitter detection to cover UAs like:
+  // "Twitter for iPhone/11.34" and similar variants.
+  const isTwitterInApp = /Twitter|Twitter for iPhone|TwitterAndroid/i.test(userAgent);
+  const isIOS = /iPad|iPhone|iPod/i.test(userAgent);
+  const isAndroid = /Android/i.test(userAgent);
+  // Updated common in-app regex to explicitly include Twitter variants.
+  const isCommonInApp = /FBAN|FBAV|Twitter|Twitter for iPhone|TwitterAndroid|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
+  // Consider Twitter as part of in-app browsers.
+  const isInApp = isMiHoYo || isCommonInApp || isInstagramInApp || isTwitterInApp;
 
   useEffect(() => {
     if (isMobile && isInApp) {
