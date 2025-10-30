@@ -9,11 +9,13 @@ const InAppBrowserRedirectVI = () => {
 
   // Detect if the user agent is one of the miHoYo in-app browsers.
   const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
+  const isTwitterInApp = /Twitter|Twitter for iPhone|TwitterAndroid/i.test(userAgent);
   const isInstagramInApp = /Instagram/.test(userAgent);
   const isIOS = /iPad|iPhone|iPod/.test(userAgent);
   const isAndroid = /Android/.test(userAgent);
-  const isCommonInApp = /FBAN|FBAV|Twitter|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
-  const isInApp = isMiHoYo || isCommonInApp || isInstagramInApp;
+  const isCommonInApp = /FBAN|FBAV|Twitter|Twitter for iPhone|TwitterAndroid|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
+  // Consider Twitter as part of in-app browsers.
+  const isInApp = isMiHoYo || isCommonInApp || isInstagramInApp || isTwitterInApp;
 
   useEffect(() => {
     if (isMobile && isInApp) {
