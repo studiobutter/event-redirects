@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // Main Page
 import Home from './pages/home';
+import Status from './pages/status';
 
 // miHoYo
 import YSglobal from './pages/event/ys_global';
@@ -36,6 +37,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<Home />} />
+        <Route path="/status" element={<Status />} />
         
         <Route path="/event/genshin" element={<YSglobal />} />
         <Route path="/event/ysvn" element={<YSvn />} />
