@@ -34,7 +34,7 @@ function SRcn() {
           此处
         </a>
       ) : (
-        <a href="https://act-api-takumi.mihoyo.com/event/download_porter/link/hkrpg_cn/official/pc_default">
+        <a href="https://mhyurl.cn/Ztkut6sBd">
           此处
         </a>
       )}

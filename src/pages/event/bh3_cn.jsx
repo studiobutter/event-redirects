@@ -1,9 +1,9 @@
-import React, { useEffect } from "react"; // eslint-disable-line no-unused-vars
-import { isMobile } from "react-device-detect";
+import { useEffect } from "react"; // eslint-disable-line no-unused-vars
+import { isMobile , isMacOs } from "react-device-detect";
 
 import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
 
-function YScn() {
+function BH3cn() {
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = /Instagram/i.test(userAgent);
@@ -11,11 +11,11 @@ function YScn() {
     const isInApp = isInstagram || isFacebook;
 
     if (!isInApp) {
-      if (isMobile) {
-        window.location.href = "yuanshen://";
+      if (isMobile || isMacOs) {
+        window.location.href = "bh3game://";
       } else {
         window.location.href =
-          "hyp-cn://launchgame?gamebiz=hk4e_cn&openGame=true";
+          "hyp-cn://launchgame?gamebiz=bh3_cn&openGame=true";
       }
     }
   }, []);
@@ -23,14 +23,14 @@ function YScn() {
   return (
     <div>
       <InAppBrowserRedirectZH />
-      <p>{isMobile ? "启动原神..." : "启动米哈游启动器..."}</p>
+      <p>{(isMobile || isMacOs) ? "启动原神..." : "启动米哈游启动器..."}</p>
 
       <p style={{ display: "inline", marginRight: "1px" }}>
         如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在
       </p>
 
-      {isMobile ? (
-        <a href="https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default">
+      {(isMobile || isMacOs) ? (
+        <a href={isMacOs ? "https://act-api-takumi.mihoyo.com/event/download_porter/link/bh3_cn/bh3/ios_official" : "https://act-api-takumi.mihoyo.com/event/download_porter/link/bh3_cn/bh3/android_official"}>
           此处
         </a>
       ) : (
@@ -43,4 +43,4 @@ function YScn() {
   );
 }
 
-export default YScn;
+export default BH3cn;
