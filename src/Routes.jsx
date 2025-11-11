@@ -17,6 +17,9 @@ import NAPglobal from './pages/event/nap_global';
 import NAPcn from './pages/event/nap_cn';
 import NAPvn from './pages/event/nap_vn';
 
+import BH3Glb from './pages/event/bh3';
+import BH3cn from './pages/event/bh3_cn';
+
 // miHoYo Cloud
 import CloudYSCN from './pages/event/cg_ys_cn';
 import CloudSRCN from './pages/event/cg_sr_cn';
@@ -50,7 +53,10 @@ function AppRoutes() {
         <Route path="/event/zzz" element={<NAPglobal />} />
         <Route path="/event/nap" element={<NAPcn />} />
         <Route path="/event/zzzvn" element={<NAPvn />} />
-        
+
+        <Route path="/event/hi3" element={<BH3Glb />} />
+        <Route path="/event/bh3" element={<BH3cn />} />
+
         <Route path="/event/sky" element={<Sky />} />
         <Route path="/event/guangyu" element={<Yu />} />
 

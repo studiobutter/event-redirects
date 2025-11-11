@@ -34,7 +34,7 @@ function NAPcn() {
           此处
         </a>
       ) : (
-        <a href="https://api-takumi.mihoyo.com/event/download_porter/link/nap_cn/official/pc_ldy">
+        <a href="https://mhyurl.cn/Ztkut6sBd">
           此处
         </a>
       )}
