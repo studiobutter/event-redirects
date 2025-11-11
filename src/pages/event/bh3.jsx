@@ -8,7 +8,7 @@ function BH3Glb() {
 
   // Mapping between server keys and readable names
   const regionNames = {
-    overseas_official: "Asia",
+    overseas_official: "Southeast Asia",
     vn_official: "Vietnam",
     glb_official: "America",
     jp_official: "Japan",
@@ -106,11 +106,6 @@ function BH3Glb() {
       )}
 
       <p>Server: {serverDisplayName}</p>
-      <p></p>
-      <p>
-        If you are viewing this in an in-app browser like Twitter, please open
-        this link in your device's browser.
-      </p>
     </div>
   );
 }
