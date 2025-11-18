@@ -6,6 +6,7 @@ function UGCBeyond() {
   const queryParams = new URLSearchParams(window.location.search);
   const ugcId = queryParams.get("ugc_id");
   const server = queryParams.get("server");
+  const isCloud = queryParams.get("is_cloud") === "1";
 
   // Mapping between server keys and readable names
   const serverNames = {
@@ -14,7 +15,7 @@ function UGCBeyond() {
   };
 
   const validServers = Object.keys(serverNames);
-  const isValid = ugcId && validServers.includes(server);
+  const isValid = ugcId && validServers.includes(server) && !(isCloud && server === "cn_qd01");
   const serverDisplayName = serverNames[server] || server;
 
   useEffect(() => {
@@ -28,8 +29,7 @@ function UGCBeyond() {
       return;
     }
 
-    const encodedMobileDeeplink = `event_type%3Dugc_level_info%26source%3Dbbs%26activity_id%3D${ugcId}`;
-    const encodedDesktopDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs`;
+    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs`;
 
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = /Instagram/i.test(userAgent);
@@ -38,14 +38,18 @@ function UGCBeyond() {
 
     if (!isInApp) {
       if (isMobile) {
-        const mobileUri = `yuanshen://?deferred_deeplink=${encodedMobileDeeplink}`;
+        const mobileUri = isCloud
+          ? `yscloud://?deferred_deeplink=${encodedDeeplink}`
+          : `yuanshen://?deferred_deeplink=${encodedDeeplink}`;
         window.location.href = mobileUri;
       } else {
-        const desktopUri = `hyp-cn://launchgame?gamebiz=hk4e_cn&openGame=true&deferredDeeplink=${encodedDesktopDeeplink}&uapc_md5=c1373fe940ff7c2d`;
+        const desktopUri = server === "cn_qd01"
+          ? `hyp-cn-14-0-hk4e-cn-umfgRO5gh5://launchgame?gamebiz=hk4e_cn&openGame=true&deferredDeeplink=${encodedDeeplink}&uapc_md5=c1373fe940ff7c2d`
+          : `hyp-cn://launchgame?gamebiz=hk4e_cn&openGame=true&deferredDeeplink=${encodedDeeplink}&uapc_md5=c1373fe940ff7c2d`;
         window.location.href = desktopUri;
       }
     }
-  }, [isValid, ugcId]);
+  }, [isValid, ugcId, isCloud, server]);
 
   if (!isValid) {
     return (
@@ -63,7 +67,15 @@ function UGCBeyond() {
   return (
     <div>
       <InAppBrowserRedirectZH />
-      <p>{isMobile ? "启动原神..." : "启动米哈游启动器..."}</p>
+      <p>
+        {isCloud
+          ? isMobile
+            ? "启动原神 - 云游戏..."
+            : "启动米哈游启动器 (云)..."
+          : isMobile
+          ? "启动原神..."
+          : "启动米哈游启动器..."}
+      </p>
 
       <p style={{ display: "inline", marginRight: "1px" }}>
         如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在
@@ -74,6 +86,14 @@ function UGCBeyond() {
         <a href="https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default">
           此处
         </a>
+      )}
+
+      {isMobile && !isCloud && server !== "cn_qd01" && (
+        <p>
+          如果您使用原神 - 云游戏，请点击{" "}
+          <a href={`?ugc_id=${ugcId}&server=${server}&is_cloud=1`}>此处</a>{" "}
+          以改为打开云游戏。
+        </p>
       )}
 
       <p>GUID: {ugcId}</p>

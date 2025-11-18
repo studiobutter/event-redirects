@@ -1,11 +1,9 @@
 import { useEffect } from "react"; // eslint-disable-line no-unused-vars
 import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
 
-const iOS_Url =
-  "https://act-api-takumi.mihoyo.com/event/download_porter/link/clgm_nap-cn/official/ios_default";
-const Android_Url =
+const MobileUrl =
   "https://act-api-takumi.mihoyo.com/event/download_porter/link/clgm_nap-cn/official/android_cloudgame";
-const Url =
+const PCUrl =
   "https://api-takumi.mihoyo.com/event/download_porter/link/clgm_nap-cn/official/pc_ldytest2";
 
 function CloudNAPCN() {
@@ -23,18 +21,18 @@ function CloudNAPCN() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     if (/android/i.test(userAgent)) {
-      return Android_Url;
+      return MobileUrl;
     }
 
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      return iOS_Url;
+      return MobileUrl;
     }
 
     if (/Macintosh|Mac OS X/i.test(userAgent)) {
-      return iOS_Url;
+      return MobileUrl;
     }
 
-    return Url;
+    return PCUrl;
   };
 
   return (

@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import InAppBrowserRedirectZH from '../components/InAppBrowserRedirect_zh-Hans';
 
-const iOS_Url = 'https://apps.apple.com/cn/app/id6475038985';
-const Android_Url = 'https://act-api-takumi.mihoyo.com/event/download_porter/link/clgm_hkrpg-cn/official/android_default';
+const MobileUrl = 'https://act-api-takumi.mihoyo.com/event/download_porter/link/clgm_hkrpg-cn/official/android_default';
 const Desktop_Url = 'https://sr.mihoyo.com/cloud';
 
 function CloudSRCN() {
@@ -22,8 +21,7 @@ function CloudSRCN() {
     }
   }, []);
 
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  const downloadUrl = isIOS ? iOS_Url : Android_Url;
+  const downloadUrl = MobileUrl;
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
