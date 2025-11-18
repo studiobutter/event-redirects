@@ -43,9 +43,10 @@ function UGCBeyond() {
           : `yuanshen://?deferred_deeplink=${encodedDeeplink}`;
         window.location.href = mobileUri;
       } else {
-        const desktopUri = server === "cn_qd01"
-          ? `hyp-cn-14-0-hk4e-cn-umfgRO5gh5://launchgame?gamebiz=hk4e_cn&openGame=true&deferredDeeplink=${encodedDeeplink}&uapc_md5=c1373fe940ff7c2d`
-          : `hyp-cn://launchgame?gamebiz=hk4e_cn&openGame=true&deferredDeeplink=${encodedDeeplink}&uapc_md5=c1373fe940ff7c2d`;
+        const scheme = server === "cn_qd01"
+          ? `hyp-cn-14-0-hk4e-cn-umfgRO5gh5://`
+          : `hyp-cn://`;
+        const desktopUri = `${scheme}launchgame?gamebiz=hk4e_cn&openGame=true&deferredDeeplink=${encodedDeeplink}&uapc_md5=c1373fe940ff7c2d`;
         window.location.href = desktopUri;
       }
     }
