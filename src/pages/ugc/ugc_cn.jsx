@@ -68,15 +68,13 @@ function UGCBeyond() {
   return (
     <div>
       <InAppBrowserRedirectZH />
-      <p>
-        {isCloud
-          ? isMobile
-            ? "启动原神 - 云游戏..."
-            : "启动米哈游启动器 (云)..."
-          : isMobile
-          ? "启动原神..."
-          : "启动米哈游启动器..."}
-      </p>
+      <p> 
+        {isMobile 
+          ? isCloud 
+            ? "启动原神 - 云游戏..." 
+            : "启动原神..." 
+          : "启动米哈游启动器..."} 
+      </p> 
 
       <p style={{ display: "inline", marginRight: "1px" }}>
         如果游戏无法打开或出现无效错误，则您可能没有该游戏。请在
