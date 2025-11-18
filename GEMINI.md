@@ -6,7 +6,7 @@ Welcome to the `event-redirects` project! This guide is intended to help new con
 
 This is a React-based web application built with Vite. Its primary purpose is to act as a redirection service for various web links, with a current focus on HoYoverse games (like Genshin Impact, Honkai: Star Rail, Zenless Zone Zero, Honkai Impact 3rd) and a User-Generated Content (UGC) sharing feature for Genshin Impact's "Miliastra Wonderland".
 
-The application detects the user's device (mobile/desktop) and region (Global/CN/VN) to redirect them to the appropriate game client or download page using deep links. It also handles cases where the link is opened within an in-app browser (e.g., Instagram, Facebook) by prompting the user to open it in their system's default browser.
+The application detects the user's device (mobile/desktop) and uses specific URL paths to handle different regions (Global/CN/VN), redirecting them to the appropriate game client or download page using deep links. It also handles cases where the link is opened within an in-app browser (e.g., Instagram, Facebook) by prompting the user to open it in their system's default browser.
 
 In the future, this project might be expanded to handle general-purpose short link redirection.
 
