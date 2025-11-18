@@ -68,12 +68,8 @@ function UGCWonderland() {
     <div>
       <InAppBrowserRedirect />
       <p>
-        {isCloud
-          ? isMobile
-            ? "Opening Genshin Impact - Cloud..."
-            : "Opening HoYoPlay..."
-          : isMobile
-          ? "Opening Genshin Impact..."
+        {isMobile
+          ? `Opening Genshin Impact${isCloud ? " - Cloud" : ""}...`
           : "Opening HoYoPlay..."}
       </p>
 
