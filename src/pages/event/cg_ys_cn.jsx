@@ -1,11 +1,9 @@
 import { useEffect } from "react"; // eslint-disable-line no-unused-vars
 import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
 
-const iOS_Url =
-  "https://api-takumi.mihoyo.com/event/download_porter/link/clgm_cn/official/ios_default";
-const Android_Url =
+const MobileUrl =
   "https://api-takumi.mihoyo.com/event/download_porter/link/clgm_cn/official/android_web";
-const Url =
+const PCUrl =
   "https://api-takumi.mihoyo.com/event/download_porter/link/clgm_cn/official/pc_web";
 
 function CloudYSCN() {
@@ -22,15 +20,11 @@ function CloudYSCN() {
   const getDownloadUrl = () => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    if (/android/i.test(userAgent)) {
-      return Android_Url;
+    if (/iPad|iPhone|iPod|android/i.test(userAgent) && !window.MSStream) {
+      return MobileUrl;
     }
 
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      return iOS_Url;
-    }
-
-    return Url;
+    return PCUrl;
   };
 
   return (

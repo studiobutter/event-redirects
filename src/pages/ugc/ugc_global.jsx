@@ -6,6 +6,7 @@ function UGCWonderland() {
   const queryParams = new URLSearchParams(window.location.search);
   const ugcId = queryParams.get("ugc_id");
   const server = queryParams.get("server");
+  const isCloud = queryParams.get("is_cloud") === "1";
 
   // Mapping between server keys and readable names
   const serverNames = {
@@ -30,8 +31,7 @@ function UGCWonderland() {
       return;
     }
 
-    const encodedMobileDeeplink = `event_type%3Dugc_level_info%26source%3Dbbs%26activity_id%3D${ugcId}`;
-    const encodedDesktopDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs`;
+    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs`;
 
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = /Instagram/i.test(userAgent);
@@ -40,14 +40,16 @@ function UGCWonderland() {
 
     if (!isInApp) {
       if (isMobile) {
-        const mobileUri = `genshin://?deferred_deeplink=${encodedMobileDeeplink}`;
+        const mobileUri = isCloud
+          ? `cloudgenshin://?deferred_deeplink=${encodedDeeplink}`
+          : `genshin://?deferred_deeplink=${encodedDeeplink}`;
         window.location.href = mobileUri;
       } else {
-        const desktopUri = `hyp-global://launchgame?gamebiz=hk4e_global&openGame=true&deferredDeeplink=${encodedDesktopDeeplink}&uapc_md5=c1373fe940ff7c2d`;
+        const desktopUri = `hyp-global://launchgame?gamebiz=hk4e_global&openGame=true&deferredDeeplink=${encodedDeeplink}&uapc_md5=c1373fe940ff7c2d`;
         window.location.href = desktopUri;
       }
     }
-  }, [isValid, ugcId]);
+  }, [isValid, ugcId, isCloud, server]);
 
   if (!isValid) {
     return (
@@ -65,7 +67,15 @@ function UGCWonderland() {
   return (
     <div>
       <InAppBrowserRedirect />
-      <p>{isMobile ? "Opening Genshin Impact..." : "Opening HoYoPlay..."}</p>
+      <p>
+        {isCloud
+          ? isMobile
+            ? "Opening Genshin Impact - Cloud..."
+            : "Opening HoYoPlay..."
+          : isMobile
+          ? "Opening Genshin Impact..."
+          : "Opening HoYoPlay..."}
+      </p>
 
       <p style={{ display: "inline", marginRight: "1px" }}>
         If the game fails to open or throws an invalid error, then you might not
@@ -77,6 +87,14 @@ function UGCWonderland() {
         <a href="https://sg-public-api.hoyoverse.com/event/download_porter/trace/hyp_global/hyphoyoverse/default">
           here
         </a>
+      )}
+
+      {isMobile && !isCloud && (
+        <p>
+          If you use Genshin Impact - Cloud, click{" "}
+          <a href={`?ugc_id=${ugcId}&server=${server}&is_cloud=1`}>here</a> to
+          open Cloud instead.
+        </p>
       )}
 
       <p>Wonderland Level ID: {ugcId}</p>
