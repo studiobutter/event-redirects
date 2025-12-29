@@ -1,52 +1,53 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function GenshinPatch() {
-  // Use a ref to track state across the async timer
   const isAppOpened = useRef(false);
+  // State to update UI if the user returns to this tab later
+  const [status, setStatus] = useState("redirecting"); 
 
   useEffect(() => {
     const WEB_URL = "https://m.hoyolab.com/toBBS.html?id=2";
     const OPEN_URL = `hoyolab://openURL?url=${encodeURIComponent(WEB_URL)}`;
-    const TIMEOUT_DURATION = 2500; // Increased to give user time to read the prompt
+    const TIMEOUT_DURATION = 2500;
 
-    // 1. Hook into visibility changes (Standard + Safari specific)
     const handleVisibilityChange = () => {
+      // If page becomes hidden, we assume the app launched
       if (document.hidden || document.webkitHidden) {
         isAppOpened.current = true;
+        setStatus("success"); // Update UI for when/if they return
+
+        // --- ATTEMPT TO CLOSE ---
+        try {
+          // This will likely be ignored by Safari, but valid to try
+          window.close();
+        } catch (e) {
+          console.log("Could not auto-close tab");
+        }
       }
     };
 
-    // 'pagehide' is often more reliable on mobile Safari than 'visibilitychange'
     window.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("pagehide", handleVisibilityChange);
 
-    // 2. Record the start time
     const startTime = Date.now();
-
-    // 3. Try to open the app
     window.location.href = OPEN_URL;
 
-    // 4. Set the fallback timer
     const fallbackTimer = setTimeout(() => {
-      // Calculate how much time actually passed
       const timeElapsed = Date.now() - startTime;
-
-      // If the app opened, the browser process was likely suspended/frozen.
-      // So, if the timer fires and significantly MORE time has passed than we asked for,
-      // it means the user was away (in the app). We should NOT redirect.
-      // Threshold: Timeout + 500ms buffer.
+      
+      // If time elapsed is huge, the user was away (app opened)
+      // so we don't redirect.
       if (timeElapsed > TIMEOUT_DURATION + 500) {
+        setStatus("success");
         return; 
       }
 
-      // If the document is currently hidden, do not redirect
-      if (document.hidden || document.webkitHidden || isAppOpened.current) {
+      if (document.hidden || isAppOpened.current) {
         return;
       }
 
-      // Fallback: App didn't open, redirect to Web
+      // Fallback redirect
       window.location.href = WEB_URL;
-      
     }, TIMEOUT_DURATION);
 
     return () => {
@@ -56,15 +57,21 @@ export default function GenshinPatch() {
     };
   }, []);
 
+  // Render different UI based on state
+  if (status === "success") {
+    return (
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <h3>Opened in HoYoLAB!</h3>
+        <p>You can close this tab.</p>
+        <button onClick={() => window.close()}>Close Tab</button>
+      </div>
+    );
+  }
+
   return (
     <div style={{ padding: "2rem", textAlign: "center" }}>
       <h3>Opening HoYoLAB...</h3>
-      <p style={{ marginTop: "1rem", color: "#666" }}>
-        If the app prompt appears, please tap <b>Open</b>.
-      </p>
-      <p style={{ marginTop: "1rem", fontSize: "0.9rem" }}>
-        Stuck? <a href="https://m.hoyolab.com/toBBS.html?id=2">Click here to continue to browser</a>
-      </p>
+      <p>Redirecting you to the app.</p>
     </div>
   );
 }
