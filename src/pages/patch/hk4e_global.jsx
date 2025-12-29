@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function GenshinPatch() {
   useEffect(() => {
     const WEB_URL = "https://m.hoyolab.com/toBBS.html?id=2";
-    const OPEN_URL = `openURL?url=${encodeURIComponent(WEB_URL)}`;
+    const OPEN_URL = `hoyolab://openURL?url=${encodeURIComponent(WEB_URL)}`;
 
     let appOpened = false;
 
