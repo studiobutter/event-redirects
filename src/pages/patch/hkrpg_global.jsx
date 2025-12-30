@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function GenshinPatch() {
+export default function HSRPatch() {
   const isAppOpened = useRef(false);
   // State to update UI if the user returns to this tab later
   const [status, setStatus] = useState("redirecting"); 
 
   useEffect(() => {
-    const WEB_URL = "https://m.hoyolab.com/toBBS.html?game_id=2";
+    const WEB_URL = "https://m.hoyolab.com/toBBS.html?game_id=6";
     const OPEN_URL = `hoyolab://openURL?url=${encodeURIComponent(WEB_URL)}`;
     const TIMEOUT_DURATION = 2500;
 
