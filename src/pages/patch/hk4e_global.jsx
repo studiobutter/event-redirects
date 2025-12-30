@@ -13,7 +13,7 @@ export default function GenshinPatch() {
     // This format tells Android: Use the 'hoyolab' scheme, but if it fails, 
     // fall back to S.browser_fallback_url (WEB_URL).
     // Note: We use package 'com.mihoyo.hoyolab' (HoyoLAB's package ID)
-    const ANDROID_INTENT = `intent://openURL?url=${encodeURIComponent(WEB_URL)}#Intent;scheme=hoyolab;package=com.mihoyo.hoyolab;S.browser_fallback_url=${encodeURIComponent(WEB_URL)};end`;
+    const ANDROID_INTENT = `intent://openURL?url=${encodeURIComponent(WEB_URL)}#Intent;scheme=hoyolab;package=com.mihoyo.hyperion;S.browser_fallback_url=${encodeURIComponent(WEB_URL)};end`;
 
     const isAndroid = /Android/i.test(navigator.userAgent);
 
