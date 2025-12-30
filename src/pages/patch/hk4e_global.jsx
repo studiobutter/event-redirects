@@ -2,27 +2,41 @@ import { useEffect, useRef, useState } from "react";
 
 export default function GenshinPatch() {
   const isAppOpened = useRef(false);
-  // State to update UI if the user returns to this tab later
-  const [status, setStatus] = useState("redirecting"); 
+  const [status, setStatus] = useState("redirecting");
 
   useEffect(() => {
     const WEB_URL = "https://m.hoyolab.com/toBBS.html?id=2";
-    const OPEN_URL = `hoyolab://openURL?url=${encodeURIComponent(WEB_URL)}`;
+    // Standard Deep Link
+    const SCHEME_URL = `hoyolab://openURL?url=${encodeURIComponent(WEB_URL)}`;
+    
+    // Android "Intent" URL (The Magic Fix)
+    // This format tells Android: Use the 'hoyolab' scheme, but if it fails, 
+    // fall back to S.browser_fallback_url (WEB_URL).
+    // Note: We use package 'com.mihoyo.hoyolab' (HoyoLAB's package ID)
+    const ANDROID_INTENT = `intent://openURL?url=${encodeURIComponent(WEB_URL)}#Intent;scheme=hoyolab;package=com.mihoyo.hoyolab;S.browser_fallback_url=${encodeURIComponent(WEB_URL)};end`;
+
+    const isAndroid = /Android/i.test(navigator.userAgent);
+
+    // --- ANDROID STRATEGY ---
+    if (isAndroid) {
+      // Android handles fallback natively via the Intent URL.
+      // We don't need timers or checks. The OS does it all.
+      window.location.href = ANDROID_INTENT;
+      
+      // We can just assume success/redirect happens immediately
+      setStatus("success");
+      return; 
+    }
+
+    // --- IOS / DESKTOP STRATEGY (Your existing code) ---
+    
     const TIMEOUT_DURATION = 2500;
 
     const handleVisibilityChange = () => {
-      // If page becomes hidden, we assume the app launched
       if (document.hidden || document.webkitHidden) {
         isAppOpened.current = true;
-        setStatus("success"); // Update UI for when/if they return
-
-        // --- ATTEMPT TO CLOSE ---
-        try {
-          // This will likely be ignored by Safari, but valid to try
-          window.close();
-        } catch (e) {
-          console.log("Could not auto-close tab");
-        }
+        setStatus("success");
+        try { window.close(); } catch (e) {} 
       }
     };
 
@@ -30,23 +44,17 @@ export default function GenshinPatch() {
     window.addEventListener("pagehide", handleVisibilityChange);
 
     const startTime = Date.now();
-    window.location.href = OPEN_URL;
+    window.location.href = SCHEME_URL;
 
     const fallbackTimer = setTimeout(() => {
       const timeElapsed = Date.now() - startTime;
-      
-      // If time elapsed is huge, the user was away (app opened)
-      // so we don't redirect.
       if (timeElapsed > TIMEOUT_DURATION + 500) {
         setStatus("success");
-        return; 
-      }
-
-      if (document.hidden || isAppOpened.current) {
+        try { window.close(); } catch (e) {}
         return;
       }
+      if (document.hidden || isAppOpened.current) return;
 
-      // Fallback redirect
       window.location.href = WEB_URL;
     }, TIMEOUT_DURATION);
 
@@ -57,21 +65,23 @@ export default function GenshinPatch() {
     };
   }, []);
 
-  // Render different UI based on state
   if (status === "success") {
     return (
-      <div style={{ padding: "2rem", textAlign: "center" }}>
-        <h3>Opened in HoYoLAB!</h3>
-        <p>You can close this tab.</p>
-        <button onClick={() => window.close()}>Close Tab</button>
+      <div style={{ padding: "2rem", textAlign: "center", fontFamily: "sans-serif" }}>
+        <p>Opened in App.</p>
+        <button 
+          onClick={() => window.close()}
+          style={{ marginTop: "1rem", padding: "10px 20px", background: "#eee", border: "none", borderRadius: "8px" }}
+        >
+          Close Tab
+        </button>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: "2rem", textAlign: "center" }}>
-      <h3>Opening HoYoLAB...</h3>
-      <p>Redirecting you to the app.</p>
+    <div style={{ padding: "2rem", textAlign: "center", fontFamily: "sans-serif" }}>
+      <p>Opening HoYoLAB...</p>
     </div>
   );
 }
