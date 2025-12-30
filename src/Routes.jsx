@@ -27,7 +27,6 @@ import CloudYSGlobal from './pages/event/cg_ys_global';
 import CloudNAPCN from './pages/event/cg_nap_cn';
 
 import GenshinPatch from './pages/patch/hk4e_global.jsx';
-import GenshinPatchAndroid from './pages/patch/hk4e_android.jsx';
 
 // TGC
 import Sky from './pages/event/sky';
@@ -72,7 +71,6 @@ function AppRoutes() {
         <Route path="/ugc/beyond" element={<UGCBeyond />} />
 
         <Route path="/patch/genshin" element={<GenshinPatch />} />
-        <Route path="/patch/genshin_android" element={<GenshinPatchAndroid />} />
       </Routes>
     </Router>
   );
