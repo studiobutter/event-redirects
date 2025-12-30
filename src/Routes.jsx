@@ -27,6 +27,8 @@ import CloudYSGlobal from './pages/event/cg_ys_global';
 import CloudNAPCN from './pages/event/cg_nap_cn';
 
 import GenshinPatch from './pages/patch/hk4e_global.jsx';
+import HSRPatch from './pages/patch/hkrpg_global.jsx';
+import ZZZPatch from './pages/patch/nap_global.jsx';
 
 // TGC
 import Sky from './pages/event/sky';
@@ -71,6 +73,8 @@ function AppRoutes() {
         <Route path="/ugc/beyond" element={<UGCBeyond />} />
 
         <Route path="/patch/genshin" element={<GenshinPatch />} />
+        <Route path="/patch/starrail" element={<HSRPatch />} />
+        <Route path="/patch/zenless" element={<ZZZPatch />} />
       </Routes>
     </Router>
   );
