@@ -29,6 +29,10 @@ import CloudNAPCN from './pages/event/cg_nap_cn';
 import GenshinPatch from './pages/patch/hk4e_global.jsx';
 import HSRPatch from './pages/patch/hkrpg_global.jsx';
 import ZZZPatch from './pages/patch/nap_global.jsx';
+import HonkaiPatch from './pages/patch/bh3_cn.jsx';
+import ZenlessPatch from './pages/patch/zenless_cn.jsx';
+import SRPatch from './pages/patch/hkrpg_cn.jsx';
+import YSPatch from './pages/patch/hk4e_cn.jsx';
 
 // TGC
 import Sky from './pages/event/sky';
@@ -75,6 +79,10 @@ function AppRoutes() {
         <Route path="/patch/genshin" element={<GenshinPatch />} />
         <Route path="/patch/starrail" element={<HSRPatch />} />
         <Route path="/patch/zenless" element={<ZZZPatch />} />
+        <Route path="/patch/honkai3" element={<HonkaiPatch />} />
+        <Route path="/patch/zzz" element={<ZenlessPatch />} />
+        <Route path="/patch/sr" element={<SRPatch />} />
+        <Route path="/patch/ys" element={<YSPatch />} />
       </Routes>
     </Router>
   );
