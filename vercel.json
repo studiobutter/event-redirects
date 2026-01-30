@@ -1,5 +1,8 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
+  ],
+  "routes": [
+    { "src": "^/e/(.*)$", "dest": "/api/e/$1" }
   ]
 }
