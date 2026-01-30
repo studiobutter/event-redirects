@@ -1,8 +1,6 @@
 {
   "rewrites": [
+    { "source": "/e/:slug*", "destination": "/api/e/:slug*" },
     { "source": "/(.*)", "destination": "/" }
-  ],
-  "routes": [
-    { "src": "^/e/(.*)$", "dest": "/api/e/$1" }
   ]
 }
