@@ -23,8 +23,9 @@ import BH3cn from './pages/event/bh3_cn';
 // miHoYo Cloud
 import CloudYSCN from './pages/event/cg_ys_cn';
 import CloudSRCN from './pages/event/cg_sr_cn';
-import CloudYSGlobal from './pages/event/cg_ys_global';
 import CloudNAPCN from './pages/event/cg_nap_cn';
+import CloudYSGlobal from './pages/event/cg_ys_global';
+import CloudNAPGlobal from './pages/event/cg_nap_global.jsx';
 
 import GenshinPatch from './pages/patch/hk4e_global.jsx';
 import HSRPatch from './pages/patch/hkrpg_global.jsx';
@@ -72,6 +73,7 @@ function AppRoutes() {
         <Route path="/event/sr_cg" element={<CloudSRCN />} />
         <Route path="/event/nap_cg" element={<CloudNAPCN />} />
         <Route path="/event/genshin_cloud" element={<CloudYSGlobal />} />
+        <Route path="/event/zenless_cloud" element={<CloudNAPGlobal />} />
 
         <Route path="/ugc/wonderland" element={<UGCWonderland />} />
         <Route path="/ugc/beyond" element={<UGCBeyond />} />
