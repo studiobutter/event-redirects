@@ -31,7 +31,7 @@ function UGCWonderland() {
       return;
     }
 
-    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs%26server_name%3D${server}`;
+    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs`;
 
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = /Instagram/i.test(userAgent);
