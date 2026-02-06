@@ -8,10 +8,10 @@ const PCUrl =
 
 function CloudNAPGlobal() {
   useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const isInstagram = /Instagram/i.test(userAgent);
-    const isFacebook = /FBAN|FBAV/i.test(userAgent);
-    const isInApp = isInstagram || isFacebook;
+    const userAgent = navigator.userAgent || window.opera;
+    const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
+    const isCommonInApp = /FBAN|FBAV|Twitter|Instagram|Snapchat|TikTok|Line|MicroMessenger|MQQBrowser|Weibo|ByteDance|NewsArticle|BiliApp|Bili|XHS|NetEaseDashen|Zalo/i.test(userAgent);
+    const isInApp = isMiHoYo || isCommonInApp;
 
     if (!isInApp) {
       window.location.href = "cloudnapglobal://";
