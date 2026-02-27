@@ -43,6 +43,11 @@ import Yu from './pages/event/yu';
 import UGCWonderland from './pages/ugc/ugc_global';
 import UGCBeyond from './pages/ugc/ugc_cn';
 
+// Download Redirects
+import HoYoPlay from './pages/download/hoyoplay';
+import HYPStandalone from './pages/download/hyp_standalone';
+import Cloud from './pages/download/cloud';
+
 function AppRoutes() {
   return (
     <Router>
@@ -85,6 +90,11 @@ function AppRoutes() {
         <Route path="/patch/zzz" element={<ZenlessPatch />} />
         <Route path="/patch/sr" element={<SRPatch />} />
         <Route path="/patch/ys" element={<YSPatch />} />
+
+        <Route path="/download/hoyoplay" element={<HoYoPlay />} />
+        <Route path="/download/hoyoplay/standalone" element={<HYPStandalone />} />
+        <Route path="/download/cloud" element={<Cloud />} />
+        {/* Add more routes as needed */}
       </Routes>
     </Router>
   );
