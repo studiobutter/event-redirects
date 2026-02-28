@@ -47,6 +47,7 @@ import UGCBeyond from './pages/ugc/ugc_cn';
 import HoYoPlay from './pages/download/hoyoplay';
 import HYPStandalone from './pages/download/hyp_standalone';
 import Cloud from './pages/download/cloud';
+import Apps from './pages/download/apps';
 
 function AppRoutes() {
   return (
@@ -94,6 +95,7 @@ function AppRoutes() {
         <Route path="/download/hoyoplay" element={<HoYoPlay />} />
         <Route path="/download/hoyoplay/standalone" element={<HYPStandalone />} />
         <Route path="/download/cloud" element={<Cloud />} />
+        <Route path="/download/apps" element={<Apps />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>
