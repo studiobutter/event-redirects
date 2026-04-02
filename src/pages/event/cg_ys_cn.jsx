@@ -1,5 +1,5 @@
 import { useEffect } from "react"; // eslint-disable-line no-unused-vars
-import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
+import { InAppBrowserRedirectZH } from "../components/InAppBrowserRedirect";
 
 const MobileUrl =
   "https://api-takumi.mihoyo.com/event/download_porter/link/clgm_cn/official/android_web";

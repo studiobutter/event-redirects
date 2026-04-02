@@ -1,7 +1,7 @@
 import { useEffect } from "react"; // eslint-disable-line no-unused-vars
 import { isMobile } from "react-device-detect";
 
-import InAppBrowserRedirectZH from "../components/InAppBrowserRedirect_zh-Hans";
+import { InAppBrowserRedirectZH } from "../components/InAppBrowserRedirect";
 
 const Url =
   "https://loadingbaycn.webapp.163.com/app/v1/download_client/windows/mkt-ma75-official/url";

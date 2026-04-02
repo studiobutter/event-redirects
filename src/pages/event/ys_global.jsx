@@ -1,6 +1,23 @@
 import { useEffect } from "react"; // eslint-disable-line no-unused-vars
 import { isMobile } from "react-device-detect";
 
+import { Helmet } from "react-helmet";
+
+<Helmet>
+  <title>Open Genshin Impact</title>
+
+  <meta property="og:title" content="Open Genshin Impact" />
+  <meta
+    property="og:description"
+    content="Launch Genshin Impact directly from your device."
+  />
+  <meta
+    property="og:image"
+    content="https://raw.githubusercontent.com/studiobutter/game-update-notifier/refs/heads/main/game_icons/icon_ys.jpg"
+  />
+  <meta property="og:url" content="https://link.studiobutter.io.vn/event/genshin" />
+</Helmet>
+
 import InAppBrowserRedirect from "../components/InAppBrowserRedirect";
 
 function YSglobal() {
