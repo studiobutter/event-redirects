@@ -45,7 +45,8 @@ function EventRedirect() {
   // 3. Redirect Effect
   useEffect(() => {
     // if (import.meta.env.DEV || !config) return;
-
+    if (!config?.uris) return;
+    
     const ua = navigator.userAgent;
     const isInApp =
       /FBAN|FBAV|Instagram|Twitter|TwitterAndroid|TikTok|Line/i.test(ua);
