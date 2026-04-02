@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { isMobile, isMacOs, isAndroid, isIOS } from "react-device-detect";
+import { isMobile, isMacOs, isAndroid, isIOS, isWindows } from "react-device-detect";
 import redirectConfig from "./components/redirectConfig";
 import InAppBrowserRedirect from "./components/InAppBrowserRedirect";
 
@@ -51,6 +51,7 @@ function EventRedirect() {
       /FBAN|FBAV|Instagram|Twitter|TwitterAndroid|TikTok|Line/i.test(ua);
     if (isInApp && isMobile) return;
 
+
     const redirectUri =
       isMobile || (game === "bh3" && region === "cn" && isMacOs)
         ? config.uris.mobile
@@ -58,8 +59,17 @@ function EventRedirect() {
 
     let downloadTimer;
 
+    if (game && game.startsWith("cg_") && isWindows) {
+      if (game === "cg_sr") {
+        window.location.href = redirectUri;
+      } else {
+        return;
+      }
+    }
+
     const attemptRedirect = () => {
       // 1. Attempt to open the App
+
       window.location.href = redirectUri;
 
       // 2. Fallback Logic: Only trigger if the page stays in focus
@@ -70,7 +80,15 @@ function EventRedirect() {
           // If the user is still looking at this page (document not hidden),
           // it means the app likely didn't open.
           if (!document.hidden) {
-            window.location.href = downloadUrl;
+            if (!isWindows) {
+              window.location.href = downloadUrl;
+            } else {
+              // For Windows users, show a prompt instead of auto-downloading
+              alert(
+                "It seems the app didn't open. Please click OK to download the game."
+              );
+              window.location.href = downloadUrl;
+            }
           }
         }, 5000); // Increased timeout to give the OS time to show the prompt
       }
@@ -83,6 +101,9 @@ function EventRedirect() {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         clearTimeout(downloadTimer);
+        if (!isWindows) {
+          window.close(); // Attempt to close the page if the app opened successfully
+        }
       }
     };
 
@@ -109,6 +130,39 @@ function EventRedirect() {
     config.text ||
     (isMobile ? config.mobileText : config.pcText) ||
     "Opening...";
+
+  if (game && game.startsWith("cg_")) {
+    if (game == "cg_sr") {return} else return (
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "50px",
+          fontFamily: "sans-serif",
+        }}
+      >
+        <InAppBrowserRedirect language={config.cgui.lang || "en"} />
+
+        {!isMobile && (
+          <button
+            onClick={() =>
+              (window.location.href = config.uris.pc || config.uris.mobile)
+            }
+            style={{
+              padding: "10px 20px",
+              margin: "20px 0",
+              backgroundColor: "#007bff",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            {config.cgui.text || "Download the game"}
+          </button>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div
