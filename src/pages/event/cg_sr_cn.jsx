@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import InAppBrowserRedirectZH from '../components/InAppBrowserRedirect_zh-Hans';
+import { InAppBrowserRedirectZH } from '../components/InAppBrowserRedirect';
 
 const MobileUrl = 'https://act-api-takumi.mihoyo.com/event/download_porter/link/clgm_hkrpg-cn/official/android_default';
 const Desktop_Url = 'https://sr.mihoyo.com/cloud';

@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Status from './pages/status';
 
+// Combined Event Redirect
+import EventRedirect from './pages/event';
+
 // miHoYo
 import YSglobal from './pages/event/ys_global';
 import YScn from './pages/event/ys_cn';
@@ -54,8 +57,30 @@ function AppRoutes() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/event" element={<Home />} />
+        <Route path="/event" element={<EventRedirect />} />
         <Route path="/status" element={<Status />} />
+        
+        <Route path="/event/genshin" element={<YSglobal />} />
+        <Route path="/event/ysvn" element={<YSvn />} />
+        <Route path="/event/yuanshen" element={<YScn />} />
+
+        <Route path="/event/hsr" element={<SRglobal />} />
+        <Route path="/event/sr" element={<SRcn />} />
+        <Route path="/event/hsrvn" element={<SRvn />} />
+
+        <Route path="/event/zzz" element={<NAPglobal />} />
+        <Route path="/event/nap" element={<NAPcn />} />
+        <Route path="/event/zzzvn" element={<NAPvn />} />
+
+        <Route path="/event/hi3" element={<BH3Glb />} />
+        <Route path="/event/bh3" element={<BH3cn />} />
+
+        <Route path="/event/sky" element={<Sky />} />
+        <Route path="/event/guangyu" element={<Yu />} />
+
+        <Route path="/event/ys_cg" element={<CloudYSCN />} />
+        <Route path="/event/sr_cg" element={<CloudSRCN />} />
+        <Route path="/event/nap_cg" element={<CloudNAPCN />} />
         
         <Route path="/event/genshin" element={<YSglobal />} />
         <Route path="/event/ysvn" element={<YSvn />} />

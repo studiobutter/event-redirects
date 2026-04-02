@@ -2,10 +2,42 @@
 import { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
 
-const InAppBrowserRedirect = () => {
+// Language configurations
+const languageConfigs = {
+  en: {
+    title: "Open in Your Browser",
+    h1: "Cannot Launch",
+    p1: "Cannot open this page in this app, please open the page in your browser.",
+    button: "Copy Link",
+    p2: "Paste the link into your browser's address bar.",
+    p3: "Or press the <strong>...</strong> button in your app and choose open in (external) browser.",
+    alert: "Link copied to clipboard!"
+  },
+  zh: {
+    title: "在浏览器中打开",
+    h1: "无法启动",
+    p1: "无法在此应用中打开此页面，请在浏览器中打开该页面。",
+    button: "复制链接",
+    p2: "将链接粘贴到浏览器的地址栏中。",
+    alert: "链接已复制到剪贴板！"
+  },
+  vi: {
+    title: "Mở trong trình duyệt",
+    h1: "Không thể mở",
+    p1: "Ứng dụng không thể mở, Vui lòng mở ứng dụng này trong trình duyệt của bạn.",
+    button: "Sao chép Link",
+    p2: "Dán đường link này vào thanh địa chỉ.",
+    alert: "Đã sao chép đường link!"
+  }
+};
+
+const InAppBrowserRedirect = ({ language = 'en' }) => {
   const [fallbackVisible, setFallbackVisible] = useState(false);
   const currentUrl = window.location.href;
   const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  // Get language config, default to English if not found
+  const langConfig = languageConfigs[language] || languageConfigs.en;
 
   // Detect if the user agent is one of the miHoYo in-app browsers.
   const isMiHoYo = /miHoYoBBS/i.test(userAgent) || /miHoYoBBSOversea/i.test(userAgent);
@@ -82,7 +114,7 @@ const InAppBrowserRedirect = () => {
         <html>
           <head>
             <meta charset="utf-8">
-            <title>Open in Your Browser</title>
+            <title>${langConfig.title}</title>
             <style>
               body {
                 font-family: sans-serif;
@@ -113,16 +145,16 @@ const InAppBrowserRedirect = () => {
           </head>
           <body>
             <div class="container">
-              <h1>Cannot Launch</h1>
-              <p>Cannot open this page in this app, please open the page in your browser.</p>
-              <button class="btn" id="copyBtn">Copy Link</button>
-              <p>Paste the link into your browser's address bar.</p>
-              <p>Or press the <strong>...</strong> button in your app and choose open in (external) browser.</p>
+              <h1>${langConfig.h1}</h1>
+              <p>${langConfig.p1}</p>
+              <button class="btn" id="copyBtn">${langConfig.button}</button>
+              <p>${langConfig.p2}</p>
+              ${langConfig.p3 ? `<p>${langConfig.p3}</p>` : ''}
             </div>
             <script>
               document.getElementById('copyBtn').addEventListener('click', function() {
                 navigator.clipboard.writeText(window.location.href).then(function() {
-                  alert('Link copied to clipboard!');
+                  alert('${langConfig.alert}');
                 });
               });
             </script>
@@ -133,10 +165,14 @@ const InAppBrowserRedirect = () => {
       document.write(fallbackHTML);
       document.close();
     }
-  }, [fallbackVisible]);
+  }, [fallbackVisible, langConfig]);
 
   // Render nothing if no fallback is needed.
   return null;
 };
+
+// Pre-configured components for each language (for backward compatibility)
+export const InAppBrowserRedirectZH = () => <InAppBrowserRedirect language="zh" />;
+export const InAppBrowserRedirectVI = () => <InAppBrowserRedirect language="vi" />;
 
 export default InAppBrowserRedirect;
