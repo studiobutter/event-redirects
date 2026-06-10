@@ -17,8 +17,8 @@ function UGCWonderland() {
   };
 
   const validServers = Object.keys(serverNames);
-  const isValid = ugcId && validServers.includes(server);
-  const serverDisplayName = serverNames[server] || server;
+  const isValid = (!ugcId && !server) || (ugcId && server && validServers.includes(server));
+  const serverDisplayName = serverNames[server] || server || "Not provided";
 
   useEffect(() => {
     if (!isValid) {
@@ -31,7 +31,8 @@ function UGCWonderland() {
       return;
     }
 
-    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs`;
+    const activityId = ugcId || "0";
+    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${activityId}%26source%3Dbbs`;
 
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = /Instagram/i.test(userAgent);
@@ -56,7 +57,8 @@ function UGCWonderland() {
       <div style={{ color: "red", textAlign: "center", marginTop: "40px" }}>
         <h1>400 — Bad Request</h1>
         <p>
-          Please provide both <b>ugc_id</b> and <b>server</b> in the URL.
+          Please provide both <b>ugc_id</b> and <b>server</b> in the URL, or
+          leave both empty.
         </p>
         <p>Example:</p>
         <code>?ugc_id=24895436376&server=os_asia</code>
@@ -85,7 +87,7 @@ function UGCWonderland() {
         </a>
       )}
 
-      {isMobile && !isCloud && (
+      {isMobile && !isCloud && ugcId && server && (
         <p>
           If you use Genshin Impact - Cloud, click{" "}
           <a href={`?ugc_id=${ugcId}&server=${server}&is_cloud=1`}>here</a> to
@@ -93,8 +95,8 @@ function UGCWonderland() {
         </p>
       )}
 
-      <p>Wonderland Level ID: {ugcId}</p>
-      <p>Server: {serverDisplayName}</p>
+      {ugcId && <p>Wonderland Level ID: {ugcId}</p>}
+      {server && <p>Server: {serverDisplayName}</p>}
       <p></p>
       <p>
         If you are viewing this in an in-app browser like Twitter, please open

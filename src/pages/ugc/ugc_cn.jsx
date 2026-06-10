@@ -15,8 +15,8 @@ function UGCBeyond() {
   };
 
   const validServers = Object.keys(serverNames);
-  const isValid = ugcId && validServers.includes(server) && !(isCloud && server === "cn_qd01");
-  const serverDisplayName = serverNames[server] || server;
+  const isValid = (!ugcId && !server) || (ugcId && server && validServers.includes(server) && !(isCloud && server === "cn_qd01"));
+  const serverDisplayName = serverNames[server] || server || "未提供";
 
   useEffect(() => {
     if (!isValid) {
@@ -29,7 +29,8 @@ function UGCBeyond() {
       return;
     }
 
-    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${ugcId}%26source%3Dbbs`;
+    const activityId = ugcId || "0";
+    const encodedDeeplink = `event_type%3Dugc_level_info%26activity_id%3D${activityId}%26source%3Dbbs`;
 
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = /Instagram/i.test(userAgent);
@@ -57,7 +58,7 @@ function UGCBeyond() {
       <div style={{ color: "red", textAlign: "center", marginTop: "40px" }}>
         <h1>400 — 错误的请求</h1>
         <p>
-          请在 URL 中提供 <b>ugc_id (GUID)</b> 和 <b>server (服务器)</b>。
+          请在 URL 中同时提供 <b>ugc_id (GUID)</b> 和 <b>server (服务器)</b>，或者两者都不提供。
         </p>
         <p>示例:</p>
         <code>?ugc_id=24895436376&server=cn_gf01</code>
@@ -87,7 +88,7 @@ function UGCBeyond() {
         </a>
       )}
 
-      {isMobile && !isCloud && server !== "cn_qd01" && (
+      {isMobile && !isCloud && ugcId && server && server !== "cn_qd01" && (
         <p>
           如果您使用原神 - 云游戏，请点击{" "}
           <a href={`?ugc_id=${ugcId}&server=${server}&is_cloud=1`}>此处</a>{" "}
@@ -95,8 +96,8 @@ function UGCBeyond() {
         </p>
       )}
 
-      <p>GUID: {ugcId}</p>
-      <p>服务器: {serverDisplayName}</p>
+      {ugcId && <p>GUID: {ugcId}</p>}
+      {server && <p>服务器: {serverDisplayName}</p>}
     </div>
   );
 }
