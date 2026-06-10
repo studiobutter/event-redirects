@@ -153,10 +153,34 @@ const InAppBrowserRedirect = ({ language = 'en' }) => {
             </div>
             <script>
               document.getElementById('copyBtn').addEventListener('click', function() {
-                navigator.clipboard.writeText(window.location.href).then(function() {
-                  alert('${langConfig.alert}');
-                });
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                  navigator.clipboard.writeText(window.location.href).then(function() {
+                    alert('${langConfig.alert}');
+                  }).catch(function() {
+                    fallbackCopy(window.location.href);
+                  });
+                } else {
+                  fallbackCopy(window.location.href);
+                }
               });
+              function fallbackCopy(text) {
+                var textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.top = '0';
+                textarea.style.left = '0';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+                try {
+                  document.execCommand('copy');
+                  alert('${langConfig.alert}');
+                } catch (err) {
+                  alert('Failed to copy link');
+                }
+                document.body.removeChild(textarea);
+              }
             </script>
           </body>
         </html>

@@ -31,6 +31,24 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<EventRedirect />} />
+        <Route path="/event/genshin" element={<Navigate to="/event?game=ys&region=global" replace />} />
+        <Route path="/event/ysvn" element={<Navigate to="/event?game=ys&region=vn" replace />} />
+        <Route path="/event/yuanshen" element={<Navigate to="/event?game=ys&region=cn" replace />} />
+        <Route path="/event/hsr" element={<Navigate to="/event?game=sr&region=global" replace />} />
+        <Route path="/event/sr" element={<Navigate to="/event?game=sr&region=cn" replace />} />
+        <Route path="/event/hsrvn" element={<Navigate to="/event?game=sr&region=vn" replace />} />
+        <Route path="/event/zzz" element={<Navigate to="/event?game=zzz&region=global" replace />} />
+        <Route path="/event/nap" element={<Navigate to="/event?game=zzz&region=cn" replace />} />
+        <Route path="/event/zzzvn" element={<Navigate to="/event?game=zzz&region=vn" replace />} />
+        <Route path="/event/hi3" element={<Navigate to="/event?game=bh3" replace />} />
+        <Route path="/event/bh3" element={<Navigate to="/event?game=bh3&region=cn" replace />} />
+        <Route path="/event/sky" element={<Navigate to="/event?game=sky&region=global" replace />} />
+        <Route path="/event/guangyu" element={<Navigate to="/event?game=sky&region=cn" replace />} />
+        <Route path="/event/ys_cg" element={<Navigate to="/event?game=cg_ys&region=cn" replace />} />
+        <Route path="/event/sr_cg" element={<Navigate to="/event?game=cg_sr&region=cn" replace />} />
+        <Route path="/event/nap_cg" element={<Navigate to="/event?game=cg_nap&region=cn" replace />} />
+        <Route path="/event/genshin_cloud" element={<Navigate to="/event?game=cg_ys&region=global" replace />} />
+        <Route path="/event/zenless_cloud" element={<Navigate to="/event?game=cg_nap&region=global" replace />} />
         <Route path="/status" element={<Status />} />
 
         <Route path="/ugc/wonderland" element={<UGCWonderland />} />
