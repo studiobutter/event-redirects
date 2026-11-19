@@ -4,7 +4,7 @@ import TopStripe from './pages/components/Banner'
 
 function App() {
   return (
-    <div className="App" style={{ paddingTop: "72px" }}>
+    <div className="App" style={{ paddingTop: "56px" }}>
       <TopStripe text="⚠️ Heads up [PC]: Using Nexus Anima launcher may render the link unusable. Opening HoYoPlay will fix the issue." />
       <AppRoutes />
     </div>
